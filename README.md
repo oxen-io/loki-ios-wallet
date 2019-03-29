@@ -1,25 +1,66 @@
-⚠️ Attention
-
-Now we're working on new wallet that will replace this one. Current version will not be supported.
-
 # Installation
+
+**Before building iOS Libraries, please have a look at the [Pre-requisites](#pre-requisites)**
 
 1. Clone the repository.
 ```sh
 git clone https://github.com/fotolockr/CakeWallet.git
 ```
-2. Run install.sh. It's bash script for download and build monero library from sources. Script will download and compile: Boost, OpenSSL and Monero library (as static library) for iOS.
+2. Install Xcode from the AppStore
+3. Install [homebrew](https://brew.sh/)
+4. Install loki dependencies:
 ```sh
-./install.sh
+brew install pkgconfig
+brew install cmake
+brew install zeromq
 ```
-3. Install dependencies from Pod.
+5. Run `install_libraries.sh`. The script will download and build any external libraries needed.
+```sh
+./install_libraries.sh
+```
+6. Run `build_ios_libraries.sh`. This script will build the loki shared libraries.
+```sh
+cd Libraries/Loki
+./build_ios_libraries.sh
+```
+7. Install dependencies from Pod.
 ```sh
 pod install
 ```
 
-# P.S.
+# Pre-requisites
 
-> Also you'll be needed additional headers for build like: *sys/vmmeter.h, netinet/udp_var.h, netinet/ip_var.h, IOKit, [zmq.hpp](https://github.com/zeromq/cppzmq)*.
+You will need additional headers for build such as: *sys/vmmeter.h, netinet/udp_var.h, netinet/ip_var.h, IOKit, [zmq.hpp](https://github.com/zeromq/cppzmq)*
+
+zmq will be installed by the install script automatically to `/usr/local/include/zmq.hpp`
+
+You can get them by finding them in the right framework in xcode and moving them to the required framework. This can be done by running the following:
+
+### iPhoneSimulator.platform (Building x86)
+```sh
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/vmmeter.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/sys/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/netinet/udp_var.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/netinet/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/netinet/ip_var.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/netinet/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/OSTypes.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/libkern
+
+sudo cp -r /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Versions/A/Headers /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/IOKit.framework
+```
+
+### iPhoneOS.platform (Building arm64, arm7)
+```
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/vmmeter.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/sys/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/netinet/udp_var.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/netinet/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/netinet/ip_var.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/netinet/
+
+sudo cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/OSTypes.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/libkern
+
+sudo cp -r /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Versions/A/Headers /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/IOKit.framework
+```
 
 > We use forked repositories of [ofxiOSBoost](https://github.com/fotolockr/ofxiOSBoost), [monero](https://github.com/fotolockr/monero) and [monero-gui](https://github.com/fotolockr/monero-gui). We do this ONLY for more convenient installation process. Changes which we did in [ofxiOSBoost](https://github.com/fotolockr/ofxiOSBoost), [monero](https://github.com/fotolockr/monero) and [monero-gui](https://github.com/fotolockr/monero-gui) you can see in commit history in "build" branch of these repositories.
 

@@ -1,11 +1,17 @@
 #!/bin/bash
 
 SOURCE_DIR=`pwd`
-EXTERNAL_DIR_PATH="$SOURCE_DIR/SharedExternal"
+EXTERNAL_DIR_PATH="$SOURCE_DIR/Libraries"
+
 BOOST_URL="https://github.com/fotolockr/ofxiOSBoost.git"
-BOOST_DIR_PATH="$EXTERNAL_DIR_PATH/ofxiOSBoost"
+BOOST_DIR_PATH="$EXTERNAL_DIR_PATH/boost"
+
 OPEN_SSL_URL="https://github.com/x2on/OpenSSL-for-iPhone.git"
-OPEN_SSL_DIR_PATH="$EXTERNAL_DIR_PATH/OpenSSL"
+OPEN_SSL_DIR_PATH="$EXTERNAL_DIR_PATH/openssl"
+
+SODIUM_URL="https://github.com/jedisct1/libsodium --branch stable"
+SODIUM_PATH="$EXTERNAL_DIR_PATH/sodium"
+
 LMDB_DIR_URL="https://github.com/LMDB/lmdb.git"
 LMDB_DIR_PATH="lmdb/Sources"
 
@@ -29,9 +35,16 @@ cd $OPEN_SSL_DIR_PATH
 ./build-libssl.sh --version=1.0.2j
 cd $SOURCE_DIR
 
-echo "============================ OpenSSL ============================"
+echo "============================ LMDB ============================"
 echo "Cloning lmdb from - $LMDB_DIR_URL"
 git clone $LMDB_DIR_URL $LMDB_DIR_PATH
 cd $LMDB_DIR_PATH
 git checkout b9495245b4b96ad6698849e1c1c816c346f27c3c
+cd $SOURCE_DIR
+
+echo "============================ SODIUM ============================"
+echo "Cloning SODIUM from - $SODIUM_URL"
+git clone -b build $SODIUM_URL $SODIUM_PATH
+cd $SODIUM_PATH
+./dist-build/ios.sh
 cd $SOURCE_DIR

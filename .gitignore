@@ -30,12 +30,11 @@ Pods/
 # Carthage
 Carthage/
 
-# External
-External/
-
 # VS Code
 .vscode/
 .vscode/*
 
-CakeWalletMonero/External/
+Libraries/*
+!Libraries/loki/**.sh
+
 lmdb/Sources/
