@@ -20,7 +20,7 @@ brew install zeromq
 ```
 6. Run `build_ios_libraries.sh`. This script will build the loki shared libraries.
 ```sh
-cd Libraries/Loki
+cd Libraries/
 ./build_ios_libraries.sh
 ```
 7. Install dependencies from Pod.
