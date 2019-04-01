@@ -5,7 +5,7 @@ SOURCE_DIR=`pwd`
 ZMQ_URL="https://raw.githubusercontent.com/zeromq/cppzmq/master/zmq.hpp"
 ZMQ_PATH="/usr/local/include/zmq.hpp"
 
-BOOST_URL="https://github.com/fotolockr/ofxiOSBoost.git"
+BOOST_URL="https://github.com/Mikunj/ofxiOSBoost.git"
 BOOST_DIR_PATH="$SOURCE_DIR/boost"
 
 OPEN_SSL_URL="https://github.com/x2on/OpenSSL-for-iPhone.git"
@@ -17,7 +17,7 @@ SODIUM_PATH="$SOURCE_DIR/sodium"
 LMDB_DIR_URL="https://github.com/LMDB/lmdb.git"
 LMDB_DIR_PATH="$SOURCE_DIR/../lmdb/Sources"
 
-LOKI_URL="https://github.com/fotolockr/monero.git"
+LOKI_URL="https://github.com/loki-project/loki.git"
 LOKI_DIR_PATH="$SOURCE_DIR/loki"
 
 echo "============================ ZMQ ============================"
@@ -31,9 +31,9 @@ fi
 echo "============================ Boost ============================"
 
 echo "Cloning ofxiOSBoost from - $BOOST_URL"
-git clone -b build $BOOST_URL $BOOST_DIR_PATH
+git clone -b loki $BOOST_URL $BOOST_DIR_PATH
 cd $BOOST_DIR_PATH/scripts/
-export BOOST_LIBS="random regex graph random chrono thread signals filesystem system date_time locale serialization program_options"
+export BOOST_LIBS="random regex graph random chrono thread signals filesystem system date_time locale serialization program_options thread"
 ./build-libc++
 cd $SOURCE_DIR
 
@@ -62,9 +62,6 @@ cd $SOURCE_DIR
 echo "============================ LOKI ============================"
 
 echo "Cloning loki from - $LOKI_URL to - $LOKI_DIR_PATH"
-git clone -b build $LOKI_URL $LOKI_DIR_PATH
-cd $LOKI_DIR_PATH
-git submodule init && git submodule update
-cd $SOURCE_DIR
+git clone --recursive $LOKI_URL $LOKI_DIR_PATH
 
-echo "\n Finished installing libraries"
+echo -e "\n Finished installing libraries"
