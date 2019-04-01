@@ -14,16 +14,14 @@ brew install pkgconfig
 brew install cmake
 brew install zeromq
 ```
-5. Run `install_libraries.sh`. The script will download and build any external libraries needed.
-```sh
-./install_libraries.sh
-```
-6. Run `build_ios_libraries.sh`. This script will build the loki shared libraries.
+5. Build the loki iOS libraries
 ```sh
 cd Libraries/
-./build_ios_libraries.sh
+./install.sh
+./build_ios.sh
+cd ..
 ```
-7. Install dependencies from Pod.
+6. Install dependencies from Pod.
 ```sh
 pod install
 ```
