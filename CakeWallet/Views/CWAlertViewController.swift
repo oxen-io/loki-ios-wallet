@@ -72,12 +72,12 @@ final class CWAlertViewController: BaseViewController<CWAlertView> {
         contentView.rootFlexContainer.flex.layout()
     }
     
-    func addActions(_ actions: [CWAlertAction], axis: NSLayoutConstraint.Axis? = nil) {
+    func addActions(_ actions: [CWAlertAction], axis: UILayoutConstraintAxis? = nil) {
         guard actions.count > 0 && status != .spinner else {
             return
         }
         
-        let actionsAxis: NSLayoutConstraint.Axis
+        let actionsAxis: UILayoutConstraintAxis
         let sortedActions = actions.sorted { a, _ in
             return a.style == .cancel
         }

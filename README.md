@@ -6,7 +6,7 @@
 ```sh
 git clone https://github.com/fotolockr/CakeWallet.git
 ```
-2. Install Xcode from the AppStore
+2. Install [Xcode 9.4.1](https://developer.apple.com/download/more/)
 3. Install [homebrew](https://brew.sh/)
 4. Install loki dependencies:
 ```sh
