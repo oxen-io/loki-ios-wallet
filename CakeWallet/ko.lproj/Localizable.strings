@@ -1,5 +1,5 @@
 "welcome" = "환영합니다\nto %@";
-"first_wallet_text" = "최초으 iOS 지갑\nfor Monero";
+"first_wallet_text" = "최초으 iOS 지갑\nfor Loki";
 "InsufficientFundsWithAmount" = "보내시는 양이%@ (일정 수수료를 더했을 때 %@ %@ 현 잔고보다 많습니다 %@).";
 "InsufficientFunds" = "보내시는 양이 잔고보다 많습니다 %@.";
 "OverallBalanceWithAmonut" = "보내시는 양이%@ 잔고보다 많습니다 %@.";

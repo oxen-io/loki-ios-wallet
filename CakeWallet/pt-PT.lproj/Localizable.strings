@@ -1,5 +1,5 @@
 "welcome" = "Bem vindo\n a %@";
-"first_wallet_text" = "Primeira carteira iOS/npara Monero";
+"first_wallet_text" = "Primeira carteira iOS/npara Loki";
 "InsufficientFundsWithAmount" = "A quantia a ser enviada de %@ (quantia de %@ + taxa de %@ � superior ao seu saldo de %@).";
 "InsufficientFunds" = "A quantia a ser enviada � superior ao seu saldo de %@.";
 "OverallBalanceWithAmonut" = "A quantia a ser enviada de %@ � superior ao seu saldo de %@.";

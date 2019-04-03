@@ -1,5 +1,5 @@
 "welcome" = "Wilkommen zu %@";
-"first_wallet_text" = "Der ersten iOS-Wallet für Monero";
+"first_wallet_text" = "Der ersten iOS-Wallet für Loki";
 "InsufficientFundsWithAmount" = "Der Betrag von %@ (Anzahl der %@ + Gebühr von %@ ist mehr als Ihr Guthaben von %@).";
 "InsufficientFunds" = "Der Betrag ist mehr als Ihr Guthaben von %@.";
 "OverallBalanceWithAmonut" = "Der Betrag von %@ ist mehr als Ihr Guthaben von %@.";

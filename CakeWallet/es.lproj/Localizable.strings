@@ -1,5 +1,5 @@
 "welcome" = "Bienvenido\na %@";
-"first_wallet_text" = "El primero cartera iOS\npara Monero";
+"first_wallet_text" = "El primero cartera iOS\npara Loki";
 "InsufficientFundsWithAmount" = "Your sending amount of %@ (amount of %@ + fee of %@ is more than your balance of %@).";
 "InsufficientFunds" = "Your sending amount is more than your balance of %@.";
 "OverallBalanceWithAmonut" = "Your sending amount of %@ is more than your balance of %@.";

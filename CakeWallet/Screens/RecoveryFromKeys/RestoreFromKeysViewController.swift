@@ -7,7 +7,7 @@ final class RestoreFromKeysViewController: BaseViewController<RestoreFromKeysVie
     let type: WalletType
     weak var signUpFlow: SignUpFlow?
     
-    init(signUpFlow: SignUpFlow, store: Store<ApplicationState>, type: WalletType = .monero) {
+    init(signUpFlow: SignUpFlow, store: Store<ApplicationState>, type: WalletType = .loki) {
         self.signUpFlow = signUpFlow
         self.store = store
         self.type = type

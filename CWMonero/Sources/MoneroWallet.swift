@@ -5,7 +5,7 @@ import Alamofire
 // fixme: remove and rework this shit
 
 private let moneroBlockSize = 1000
-public let walletQueue = DispatchQueue(label: "app.cakewallet.monero-wallet-queue", qos: .default)
+public let walletQueue = DispatchQueue(label: "app.cakewallet.loki-wallet-queue", qos: .default)
 
 public final class CachedValue<Val> {
     public var handler: (() -> Val)?
@@ -55,7 +55,7 @@ private let cachedBlockchainTimeout: TimeInterval = 30
 private var cachedBlockchainHeight = CachedValue(origin: UInt64(0), timeout: cachedBlockchainTimeout)
 
 public final class MoneroWallet: Wallet {
-    public static let walletType = WalletType.monero
+    public static let walletType = WalletType.loki
     
     public var name: String {
         return moneroAdapter.name()

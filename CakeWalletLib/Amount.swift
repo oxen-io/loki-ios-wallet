@@ -19,15 +19,15 @@ extension Amount {
 
 public enum CryptoCurrency: Currency {
     public static var all: [CryptoCurrency] {
-        return [.monero, .bitcoin, .ethereum, .liteCoin, .bitcoinCash, .dash]
+        return [.loki, .bitcoin, .ethereum, .liteCoin, .bitcoinCash, .dash]
     }
     
-    case monero, bitcoin, ethereum, dash, liteCoin, bitcoinCash
+    case loki, bitcoin, ethereum, dash, liteCoin, bitcoinCash
     
     public init?(from string: String) {
         switch string.uppercased() {
-        case "XMR":
-            self = .monero
+        case "XMR", "LOKI":
+            self = .loki
         case "BTC":
             self = .bitcoin
         case "ETH":
@@ -45,8 +45,8 @@ public enum CryptoCurrency: Currency {
     
     public func formatted() -> String {
         switch self {
-        case .monero:
-            return "XMR"
+        case .loki:
+            return "LOKI"
         case .bitcoin:
             return "BTC"
         case .ethereum:

@@ -127,14 +127,14 @@ public struct RescanHandler: AsyncHandler {
                 let moneroWallet = currentWallet as! MoneroWallet
                 let password = try KeychainStorageImpl.standart.fetch(
                     forKey: KeychainKey.walletPassword(
-                        WalletIndex(name: name, type: .monero)
+                        WalletIndex(name: name, type: .loki)
                     )
                 )
 
                 try moneroWallet.rescan(from: height, password: password)
                 
 //
-//                let type = WalletType.monero
+//                let type = WalletType.loki
 //                let gateway = getGateway(for: type)
 //                currentWallet.close()
 //                try gateway.remove(withName: name)
@@ -148,7 +148,7 @@ public struct RescanHandler: AsyncHandler {
                 completionHandler()
 ////
 //                store.dispatch(
-//                    WalletActions.restoreFromSeed(withName: name, andSeed: seed, restoreHeight: height, type: .monero, handler: compHandler)
+//                    WalletActions.restoreFromSeed(withName: name, andSeed: seed, restoreHeight: height, type: .loki, handler: compHandler)
 //                )
 //                currentWallet = try gateway.recoveryWallet(withName: name, andSeed: seed, password: password, restoreHeight: height)
 //                try currentWallet.connect(toNode: node)
@@ -160,7 +160,7 @@ public struct RescanHandler: AsyncHandler {
 //
 //                try moneroWallet.rescan(
 //                    from: height,
-//                    password: try KeychainStorageImpl.standart.fetch(forKey: KeychainKey.walletPassword(WalletIndex(name: moneroWallet.name, type: .monero))),
+//                    password: try KeychainStorageImpl.standart.fetch(forKey: KeychainKey.walletPassword(WalletIndex(name: moneroWallet.name, type: .loki))),
 //                    node: node)
 //                handler(
 //                    BlockchainState.Action.changedConnectionStatus(.startingSync)
@@ -270,7 +270,7 @@ private func restoreFromMymonero(seed: String, name: String, restoreHeight: UInt
             viewKey: pvk.hexDescription,
             spendKey: psk.hexDescription,
             restoreHeight: restoreHeight,
-            type: .monero,
+            type: .loki,
             handler: completionHandler),
         store: store,
         handler: handler)

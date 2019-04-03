@@ -56,7 +56,7 @@ let store = Store<ApplicationState>(
             address: "",
             seed: "",
             isWatchOnly: true,
-            walletType: .monero,
+            walletType: .loki,
             walletKeys: nil,
             stage: .none
         ), walletsState: WalletsState(

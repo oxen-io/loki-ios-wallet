@@ -10,7 +10,7 @@ final class RestoreFromSeedViewController: BaseViewController<RestoreFromSeedVie
         return contentView.walletTextField.text ?? ""
     }
     
-    init(signUpFlow: SignUpFlow, store: Store<ApplicationState>, type: WalletType = .monero) {
+    init(signUpFlow: SignUpFlow, store: Store<ApplicationState>, type: WalletType = .loki) {
         self.signUpFlow = signUpFlow
         self.store = store
         self.type = type

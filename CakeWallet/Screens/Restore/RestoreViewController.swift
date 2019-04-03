@@ -5,7 +5,7 @@ final class RestoreViewController: BaseViewController<RecoverView> {
     weak var signUpFlow: SignUpFlow?
     let type: WalletType
     
-    init(signUpFlow: SignUpFlow, type: WalletType = .monero) {
+    init(signUpFlow: SignUpFlow, type: WalletType = .loki) {
         self.signUpFlow = signUpFlow
         self.type = type
         super.init()
@@ -18,7 +18,7 @@ final class RestoreViewController: BaseViewController<RecoverView> {
         contentView.fromKeysButton.addTarget(self, action: #selector(fromKeys), for: .touchUpInside)
         contentView.fromSeedButton.addTarget(self, action: #selector(fromSeed), for: .touchUpInside)
         switch type {
-        case .monero:
+        case .loki:
             contentView.cryptoIconImageView.image = UIImage(named: "monero_logo")
         case .bitcoin:
             break

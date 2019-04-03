@@ -1,12 +1,12 @@
 import Foundation
 
 public enum WalletType {
-    case monero, bitcoin
+    case loki, bitcoin
     
     public var currency: CryptoCurrency {
         switch self {
-        case .monero:
-            return .monero
+        case .loki:
+            return .loki
         case .bitcoin:
             return .bitcoin
         }
@@ -16,8 +16,8 @@ public enum WalletType {
         switch self {
         case .bitcoin:
             return "Bitcoin"
-        case .monero:
-            return "Monero"
+        case .loki:
+            return "Loki"
         }
     }
 }

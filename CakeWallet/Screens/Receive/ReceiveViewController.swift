@@ -229,7 +229,7 @@ struct MoneroUri {
     }
     
     func formatted() -> String {
-        var result = "monero:\(address)"
+        var result = "loki:\(address)"
         var paymentIDString = ""
         var amountString = ""
         

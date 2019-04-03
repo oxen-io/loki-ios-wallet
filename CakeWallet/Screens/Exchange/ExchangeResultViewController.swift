@@ -188,7 +188,7 @@ final class ExchangeResultViewController: BaseViewController<ExchangeResultView>
         
         if
             let trade = self.trade,
-            case .monero = trade.inputCurrency {
+            case .loki = trade.inputCurrency {
             let uri = MoneroUri(address: address, paymentId: paymentID, amount: amount)
             text = uri.formatted()
         } else {

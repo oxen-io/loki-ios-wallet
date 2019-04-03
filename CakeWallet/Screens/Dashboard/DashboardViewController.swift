@@ -297,7 +297,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
             return
         }
         
-        contentView.cryptoTitleLabel.text = "XMR"
+        contentView.cryptoTitleLabel.text = "LOKI"
             + " "
             + (showAbleBalance ? NSLocalizedString("available_balance", comment: "") : NSLocalizedString("full_balance", comment: ""))
         contentView.cryptoAmountLabel.text = amount.formatted()
@@ -353,7 +353,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     
     private func updateCryptoIcon(for walletType: WalletType) {
         switch walletType {
-        case .monero:
+        case .loki:
             contentView.cryptoIconView.image = UIImage(named: "monero_logo")
         default:
             break

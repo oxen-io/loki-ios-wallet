@@ -12,7 +12,7 @@ struct MoneroQRResult: QRUri {
     let uri: String
     
     var address: String {
-        return self.uri.slice(from: "monero:", to: "?") ?? self.uri
+        return self.uri.slice(from: "loki:", to: "?") ?? self.uri
     }
     var amount: Amount? {
         guard let amountStr = self.uri.slice(from: "tx_amount=", to: "&") else {
@@ -62,8 +62,8 @@ struct DefaultCryptoQRResult: QRUri {
             return "ethereum"
         case .liteCoin:
             return "litecoin"
-        case .monero:
-            return "monero"
+        case .loki:
+            return "loki"
         }
     }
     
@@ -169,7 +169,7 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     }
     
     func getCrypto(for addressView: AddressView) -> CryptoCurrency {
-        return .monero
+        return .loki
     }
     
     @objc

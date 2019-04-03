@@ -1,5 +1,5 @@
 "welcome" = "Witaj\nw %@";
-"first_wallet_text" = "Oto pierwszy portfel iOS\ndla Monero";
+"first_wallet_text" = "Oto pierwszy portfel iOS\ndla Loki";
 "InsufficientFundsWithAmount" = "Kwota którą wysyłasz %@ (w wysokości %@ + prowizja %@ jest wyższa niż twoje saldo w kwocie %@).";
 "InsufficientFunds" = "Kwota którą wysyłasz jest wyższa niż Twoje saldo w wysokości %@.";
 "OverallBalanceWithAmonut" = "Kwota jaką wysyłasz w wysokości %@ jest wyższa niż Twoje saldo w wysokości %@.";
