@@ -46,8 +46,8 @@ final class Configurations {
         }
     }
     
-    static let defaultMoneroNode = MoneroNodeDescription(uri: "node.cakewallet.io:18081", login: "cake", password: "public_node")
-    static let preDefaultNodeUri = "node.xmrbackb.one:18081"
+    static let defaultMoneroNode = MoneroNodeDescription(uri: "doopool.xyz:20020")
+    static let preDefaultNodeUri = "node.loki-pool.com:18081"
 //    static let defaultNodeUri = "opennode.xmr-tw.org:18089"
 //    static let defaultCurreny = Currency.usd
     static var termsOfUseUrl: URL? {
