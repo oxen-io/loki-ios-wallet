@@ -94,8 +94,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     override func configureBinds() {
         title = NSLocalizedString("send", comment: "")
         contentView.sendAllButton.addTarget(self, action: #selector(setAllAmount), for: .touchUpInside)
-        contentView.cryptoAmountTextField.addTarget(self, action: #selector(onCryptoValueChange(_:)), for: .editingChanged)
-        contentView.fiatAmountTextField.addTarget(self, action: #selector(onFiatValueChange(_:)), for: .editingChanged)
         contentView.estimatedFeeTitleLabel.text = NSLocalizedString("estimated_fee", comment: "") + ":"
         contentView.addressView.presenter = self
         contentView.addressView.updateResponsible = self
@@ -133,7 +131,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
         updateWallet(type: state.walletState.walletType)
         updateWallet(balance: state.balanceState.unlockedBalance)
         updateSendingStage(state.transactionsState.sendingStage)
-        updateFiat(state.settingsState.fiatCurrency)
         updateEstimatedFee(state.transactionsState.estimatedFee)
         
 //        if let error = state.error {
@@ -217,37 +214,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
         contentView.rootFlexContainer.flex.layout()
     }
     
-    private func updateFiat(_ fiat: FiatCurrency) {
-        contentView.fiatAmountTextField.placeholder = fiat.formatted()
-        contentView.fiatAmountTextField.title = fiat.formatted()
-    }
-    
-    @objc
-    private func onCryptoValueChange(_ textField: UITextField) {
-        guard
-            let fiatValueStr = textField.text?.replacingOccurrences(of: ",", with: "."),
-            let fiatValue = Double(fiatValueStr) else {
-                contentView.fiatAmountTextField.text = nil
-                return
-        }
-        
-        let val = fiatValue * price
-        contentView.fiatAmountTextField.text = String(val)
-    }
-    
-    @objc
-    private func onFiatValueChange(_ textField: UITextField) {
-        guard
-            let cryptoValueStr = textField.text?.replacingOccurrences(of: ",", with: "."),
-            let cryptoValue = Double(cryptoValueStr) else {
-                contentView.cryptoAmountTextField.text = nil
-                return
-        }
-        
-        let val = cryptoValue / price
-        contentView.cryptoAmountTextField.text = String(format: "%.12f", val)
-    }
-    
     private func updateSendingStage(_ stage: SendingStage) {
         switch stage {
         case let .pendingTransaction(tx):
@@ -274,12 +240,8 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     }
     
     private func updateEstimatedFee(_ fee: Amount) {
-        let fiatCurrency = store.state.settingsState.fiatCurrency
-        let price = store.state.balanceState.price
-        let fiatBalance = calculateFiatAmount(fiatCurrency, price: price, balance: fee)
         let formattedFee = MoneroAmountParser.formatValue(fee.value) ?? "0.0"
-        let formattedFiat = fiatBalance.formatted()
-        contentView.estimatedFeeValueLabel.text = String(format: "%@ (%@)", formattedFee, formattedFiat)
+        contentView.estimatedFeeValueLabel.text = String(format: "%@", formattedFee)
         let estimatedFeeContrinerWidth = contentView.estimatedFeeContriner.frame.size.width
         let totalWidth = estimatedFeeContrinerWidth
         let titleWidth = contentView.estimatedFeeTitleLabel.frame.size.width
@@ -404,7 +366,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     }
     
     private func resetForm() {
-        contentView.fiatAmountTextField.text = ""
         contentView.cryptoAmountTextField.text = ""
         contentView.addressView.textView.text = ""
         store.dispatch(TransactionsState.Action.changedSendingStage(.none))

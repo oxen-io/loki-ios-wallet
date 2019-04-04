@@ -8,7 +8,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
     let pastPaymentIDButton: PasteButton
     let paymentIdContainer: UIView
     let cryptoAmountTextField: FloatingLabelTextField
-    let fiatAmountTextField: FloatingLabelTextField
     let currenciesRowViev: UIView
     let currenciesContainer: UIView
     let estimatedFeeTitleLabel: UILabel
@@ -30,7 +29,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
         pastPaymentIDButton = PasteButton(pastable: paymentIdTextField)
         paymentIdContainer = UIView()
         cryptoAmountTextField = FloatingLabelTextField(placeholder: "CRT")
-        fiatAmountTextField = FloatingLabelTextField(placeholder: "FIAT")
         currenciesRowViev = UIView()
         currenciesContainer = UIView()
         estimatedFeeTitleLabel = UILabel(fontSize: 14)
@@ -59,7 +57,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
         cryptoAmountTitleLabel.textAlignment = .right
         cryptoAmountValueLabel.textAlignment = .right
         cryptoAmountTextField.keyboardType = .decimalPad
-        fiatAmountTextField.keyboardType = .decimalPad
     }
     
     override func configureConstraints() {
@@ -80,7 +77,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
         
         currenciesContainer.flex.direction(.row).justifyContent(.spaceBetween).define { flex in
             flex.addItem(cryptoAmountTextField).grow(1)
-            flex.addItem(fiatAmountTextField).grow(1).marginLeft(10)
             flex.addItem(sendAllButton).height(40).marginLeft(10)
         }
         
