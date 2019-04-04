@@ -15,5 +15,5 @@ public protocol WalletGateway: EmptyInitializable {
     func recoveryWallet(withName name: String, publicKey: String, viewKey: String, spendKey: String, password: String, restoreHeight: UInt64) throws -> Wallet
     func remove(withName name: String) throws
     func isExist(withName name: String) -> Bool
-    func calculateEstimatedFee(forPriority priority: TransactionPriority, handler: ((Result<Amount>) -> Void)?)
+    func calculateEstimatedFee(forPriority priority: TransactionPriority, withNode node: NodeDescription, handler: ((Result<Amount>) -> Void)?)
 }

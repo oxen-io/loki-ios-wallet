@@ -45,8 +45,15 @@ final class Configurations {
             }
         }
     }
-    
-    static let defaultMoneroNode = MoneroNodeDescription(uri: "doopool.xyz:20020")
+    static var defaultMoneroNode: MoneroNodeDescription {
+        if (ProcessInfo.processInfo.environment["TESTNET"] != nil) {
+            NSLog("USING LOCAL TESTNET NODE")
+            return MoneroNodeDescription(uri: "127.0.0.1:38157")
+        } else {
+            return MoneroNodeDescription(uri: "doopool.xyz:20020")
+        }
+    }
+
     static let preDefaultNodeUri = "node.loki-pool.com:18081"
 //    static let defaultNodeUri = "opennode.xmr-tw.org:18089"
 //    static let defaultCurreny = Currency.usd

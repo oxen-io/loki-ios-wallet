@@ -119,7 +119,7 @@ private let estimatedSizeOfDefaultTransaction = 2000000
 private var cachedFees: [TransactionPriority: Amount] = [:]
 
 extension MoneroWalletGateway {
-    public func calculateEstimatedFee(forPriority priority: TransactionPriority, handler: ((Result<Amount>) -> Void)?) {
+    public func calculateEstimatedFee(forPriority priority: TransactionPriority, withNode node: NodeDescription, handler: ((Result<Amount>) -> Void)?) {
         //fixme
 //        workQueue.async {
             if let fee = cachedFees[priority] {
@@ -127,7 +127,7 @@ extension MoneroWalletGateway {
                 return
             }
 
-            self.fetchFeePerKb() { result in
+            self.fetchFeePerKb(withNode: node) { result in
                 switch result {
                 case let .success(feePerKb):
                     let kb = UInt64((estimatedSizeOfDefaultTransaction + 1023) / 1024) // Round to kb
@@ -143,8 +143,8 @@ extension MoneroWalletGateway {
 //        }
     }
 
-    private func fetchFeePerKb(handler: ((Result<UInt64>) -> Void)?) {
-        let urlString = "http://opennode.xmr-tw.org:18089/json_rpc" // fixme
+    private func fetchFeePerKb(withNode node: NodeDescription, handler: ((Result<UInt64>) -> Void)?) {
+        let urlString = String(format: "http://%@/json_rpc", node.uri).addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"

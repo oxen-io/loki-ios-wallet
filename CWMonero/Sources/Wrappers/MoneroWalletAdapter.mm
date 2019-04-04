@@ -135,7 +135,13 @@ public:
     self = [super init];
     if (self) {
         Monero::Utils::onStartup();
-        Monero::WalletImpl *wallet = new Monero::WalletImpl();
+        Monero::NetworkType nettype = Monero::NetworkType::MAINNET;
+        if ([[[NSProcessInfo processInfo] environment] objectForKey:@"TESTNET"]) {
+            NSLog(@"TESTNET ENABLED");
+            nettype = Monero::NetworkType::TESTNET;
+        }
+        
+        Monero::WalletImpl *wallet = new Monero::WalletImpl(nettype);
         MonerWalletListener *listener = new MonerWalletListener();
         listener->wallet = self;
         wallet->setListener(listener);
