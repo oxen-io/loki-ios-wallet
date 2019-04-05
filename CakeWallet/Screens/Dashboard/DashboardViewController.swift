@@ -273,12 +273,12 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         }
         
         contentView.balanceTitleLabel.text = NSLocalizedString("full_balance", comment: "")
-        contentView.balanceAmountLabel.text = balance.formatted()
+        contentView.balanceAmountLabel.text = balance.formatted(pretty: true)
         contentView.balanceTitleLabel.flex.markDirty()
         contentView.balanceAmountLabel.flex.markDirty()
         
         contentView.unlockedTitleLabel.text = NSLocalizedString("available_balance", comment: "")
-        contentView.unlockedAmountLabel.text = unlocked.formatted()
+        contentView.unlockedAmountLabel.text = unlocked.formatted(pretty: true)
         contentView.unlockedTitleLabel.flex.markDirty()
         contentView.unlockedAmountLabel.flex.markDirty()
     }

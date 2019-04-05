@@ -80,7 +80,7 @@ final class TransactionUITableViewCell: FlexCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy, HH:mm"
         statusLabel.text = status
-        cryptoLabel.text = "\(amountPrefix)\(cryptoAmount.formatted()) \(cryptoAmount.currency.formatted())"
+        cryptoLabel.text = "\(amountPrefix)\(cryptoAmount.formatted(pretty: true)) \(cryptoAmount.currency.formatted())"
         cryptoLabel.textColor = color
         dateLabel.text = dateFormatter.string(from: date)
         fiatLabel.text = fiatAmount

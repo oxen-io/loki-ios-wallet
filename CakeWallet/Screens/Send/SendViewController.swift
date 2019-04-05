@@ -187,7 +187,7 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     }
     
     private func updateWallet(balance: Amount) {
-        let balance = balance.formatted()
+        let balance = balance.formatted(pretty: true)
         guard balance != contentView.cryptoAmountTitleLabel.text else {
             return
         }
@@ -333,7 +333,7 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
                 self?.showSpinner(withTitle: NSLocalizedString("creating_transaction", comment: ""), callback: { alert in
                     let amount = self?.contentView.cryptoAmountTextField.text == SendViewController.allSymbol
                         ? nil
-                        : MoneroAmount(from: self!.contentView.cryptoAmountTextField.text?.replacingOccurrences(of: ",", with: ".") ?? "0.0")
+                        : MoneroAmount(from: self!.contentView.cryptoAmountTextField.text?.replacingOccurrences(of: ",", with: "") ?? "0.0")
                     let address = self?.contentView.addressView.textView.text ?? ""
                     guard let priority = self?.priority else { return }
                     self?.store.dispatch(

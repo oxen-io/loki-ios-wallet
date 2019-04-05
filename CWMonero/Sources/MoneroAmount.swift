@@ -11,6 +11,12 @@ extension String {
 public struct MoneroAmount: Amount {
     public let currency: Currency = CryptoCurrency.loki
     public let value: UInt64
+    private let numberFormatter: NumberFormatter = {
+       let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.usesGroupingSeparator = true
+        return formatter
+    }()
     
     public init(value: UInt64) {
         self.value = value
@@ -34,11 +40,20 @@ public struct MoneroAmount: Amount {
     }
     
     public func formatted() -> String {
+        return formatted(pretty: false)
+    }
+    
+    public func formatted(pretty: Bool) -> String {
         guard
             let formattedValue = MoneroAmountParser.formatValue(value),
             let _value = Double(formattedValue),
             _value != 0 else {
-              return "0.0"
+                return "0.00"
+        }
+
+        if pretty,
+            let formatted = numberFormatter.string(from: _value as NSNumber) {
+            return formatted
         }
         
         return String(_value)

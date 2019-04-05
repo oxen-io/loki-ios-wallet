@@ -2,6 +2,13 @@ import Foundation
 
 public protocol Formatted {
     func formatted() -> String
+    func formatted(pretty: Bool) -> String
+}
+
+extension Formatted {
+    public func formatted(pretty: Bool = false) -> String {
+        return formatted()
+    }
 }
 
 public protocol Currency: Formatted {}

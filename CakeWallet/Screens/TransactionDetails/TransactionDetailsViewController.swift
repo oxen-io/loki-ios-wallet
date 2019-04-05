@@ -126,7 +126,7 @@ final class TransactionDetailsViewController: BaseViewController<TransactionDeta
             
             ])
         
-        let fee = MoneroAmountParser.formatValue(transactionDescription.fee.value) ?? "0.0"
+        let fee = getMoneroAmount(value: transactionDescription.fee.value)
 
         if !fee.isEmpty {
             items.append(TransactionDetailsCellItem(row: .fee, value: fee))
@@ -139,6 +139,17 @@ final class TransactionDetailsViewController: BaseViewController<TransactionDeta
         contentView.table.reloadData()
         contentView.rootFlexContainer.flex.layout(mode: .adjustHeight)
         contentView.table.isScrollEnabled = contentView.table.contentSize.height > contentView.table.frame.size.height
+    }
+    
+    private func getMoneroAmount(value: UInt64) -> String {
+        guard
+            let formattedValue = MoneroAmountParser.formatValue(value),
+            let _value = Double(formattedValue),
+            _value != 0 else {
+                return "0.00"
+        }
+        
+        return formattedValue
     }
     
     @objc
