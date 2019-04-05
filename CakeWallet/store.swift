@@ -101,9 +101,9 @@ let store = Store<ApplicationState>(
         CheckConnectionEffect(),
         KeepIdleTimerEffect(),
         OnCurrentNodeChangeEffect(),
-        ChangeFiatPriceEffect(),
-        UpdateFiatPriceAfterFiatChangeEffect(),
-        UpdateFiatBalanceAfterPriceChangeEffect(),
+//        ChangeFiatPriceEffect(),
+//        UpdateFiatPriceAfterFiatChangeEffect(),
+//        UpdateFiatBalanceAfterPriceChangeEffect(),
         OnNewSubaddressAddedEffect()
     ]
 )

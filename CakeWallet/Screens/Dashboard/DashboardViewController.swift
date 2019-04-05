@@ -90,7 +90,6 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     func onStateChange(_ state: ApplicationState) {
         updateStatus(state.blockchainState.connectionStatus)
         updateCryptoBalance(showAbleBalance ? state.balanceState.unlockedBalance : state.balanceState.balance)
-        updateFiatBalance(showAbleBalance ? state.balanceState.unlockedFiatBalance : state.balanceState.fullFiatBalance)
         onWalletChange(state.walletState, state.blockchainState)
         updateTransactions(state.transactionsState.transactions)
         updateInitialHeight(state.blockchainState)
@@ -142,13 +141,11 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         guard scrollView.contentOffset.y > contentView.cardView.frame.height else {
             contentView.shortStatusBarView.isHidden = true
             updateCryptoBalance(store.state.balanceState.balance)
-            updateFiatBalance(store.state.balanceState.unlockedFiatBalance)
             return
         }
         
         contentView.shortStatusBarView.isHidden = false
         updateCryptoBalance(store.state.balanceState.balance)
-        updateFiatBalance(store.state.balanceState.unlockedFiatBalance)
         contentView.shortStatusBarView.receiveButton.flex.markDirty()
         contentView.shortStatusBarView.sendButton.flex.markDirty()
         contentView.shortStatusBarView.flex.layout()
@@ -281,16 +278,6 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         contentView.hideSyncingIcon()
     }
     
-    private func updateFiatBalance(_ amount: Amount) {
-        guard contentView.shortStatusBarView.isHidden else {
-            updateShortFiatBalance(amount)
-            return
-        }
-        
-        contentView.fiatAmountLabel.text = amount.formatted()
-        contentView.fiatAmountLabel.flex.markDirty()
-    }
-    
     private func updateCryptoBalance(_ amount: Amount) {
         guard contentView.shortStatusBarView.isHidden else {
             updateShortCryptoBalance(amount)
@@ -308,11 +295,6 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     private func updateShortCryptoBalance(_ amount: Amount) {
         contentView.shortStatusBarView.cryptoAmountLabel.text = amount.formatted()
         contentView.shortStatusBarView.cryptoAmountLabel.flex.markDirty()
-    }
-    
-    private func updateShortFiatBalance(_ amount: Amount) {
-        contentView.shortStatusBarView.fiatAmountLabel.text = amount.formatted()
-        contentView.shortStatusBarView.fiatAmountLabel.flex.markDirty()
     }
     
     private func updateTransactions(_ transactions: [TransactionDescription]) {

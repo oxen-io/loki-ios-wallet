@@ -4,14 +4,12 @@ import FlexLayout
 
 final class ShortStatusBarView: BaseView {
     let cryptoAmountLabel: UILabel
-    let fiatAmountLabel: UILabel
     let receiveButton: UIButton
     let sendButton: UIButton
     let amountContainer: UIView
     
     required init() {
         cryptoAmountLabel = UILabel(fontSize: 18)
-        fiatAmountLabel = UILabel(fontSize: 12)
         receiveButton = PrimaryButton(title: NSLocalizedString("receive", comment: ""))
         sendButton = PrimaryButton(title: NSLocalizedString("send", comment: ""))
         amountContainer = UIView()
@@ -24,7 +22,6 @@ final class ShortStatusBarView: BaseView {
         sendButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         receiveButton.titleLabel?.numberOfLines = 1
         sendButton.titleLabel?.numberOfLines = 1
-        fiatAmountLabel.textColor = .gray
         layer.applySketchShadow(color: UIColor.gray, alpha: 0.34, x: 0, y: 10, blur: 20, spread: -10)
         layer.masksToBounds = false
         layer.cornerRadius = 15
@@ -33,7 +30,6 @@ final class ShortStatusBarView: BaseView {
     override func configureConstraints() {
         amountContainer.flex.define { flex in
             flex.addItem(cryptoAmountLabel).grow(1).width(100%)
-            flex.addItem(fiatAmountLabel).grow(1).width(100%)
         }
         
         flex.direction(.row).padding(10, 15, 10, 15).define { flex in
@@ -52,7 +48,6 @@ final class DashboardView: BaseFlexView {
     let statusLabel: UILabel
     let syncingImageView: UIImageView
     let cryptoAmountLabel: UILabel
-    let fiatAmountLabel: UILabel
     let cryptoTitleLabel: UILabel
     let receiveButton: UIButton
     let sendButton: UIButton
@@ -69,7 +64,6 @@ final class DashboardView: BaseFlexView {
         progressBar = ProgressBar()
         statusLabel = UILabel.withLightText(fontSize: 10)
         cryptoAmountLabel = UILabel(fontSize: 33)
-        fiatAmountLabel = UILabel.withLightText(fontSize: 16)
         cryptoTitleLabel = UILabel(fontSize: 16)
         cryptoIconView = UIImageView()
         receiveButton = PrimaryButton(title: NSLocalizedString("receive", comment: ""))
@@ -90,7 +84,6 @@ final class DashboardView: BaseFlexView {
         super.configureView()
         statusLabel.textAlignment = .center
         cryptoAmountLabel.textAlignment = .center
-        fiatAmountLabel.textAlignment = .center
         cryptoTitleLabel.textColor = UIColor.vividBlue
         cryptoTitleLabel.textAlignment = .center
         transactionsTableView.separatorStyle = .none
@@ -120,7 +113,6 @@ final class DashboardView: BaseFlexView {
             flex.addItem(cryptoIconView).minHeight(21).minWidth(21).marginBottom(17)
             flex.addItem(cryptoTitleLabel).width(100%).marginBottom(10)
             flex.addItem(cryptoAmountLabel).width(100%).marginLeft(30).marginRight(30)
-            flex.addItem(fiatAmountLabel).width(100%).marginTop(5).marginLeft(30).marginRight(30)
             flex.addItem(statusView).width(100%).marginTop(30).height(30)
             flex.addItem(progressBar).width(100%).height(4)
         }
