@@ -427,12 +427,20 @@ public:
 
 - (uint64_t)balance
 {
-    return member->wallet->balance();
+    try {
+        return member->wallet->balance();
+    } catch (...) {
+        return 0;
+    }
 }
 
 - (uint64_t)unlockedBalance
 {
-    return member->wallet->unlockedBalance();
+    try {
+        return member->wallet->unlockedBalance();
+    } catch (...) {
+        return 0;
+    }
 }
 
 - (uint64_t)currentHeight
