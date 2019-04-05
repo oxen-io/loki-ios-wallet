@@ -47,8 +47,10 @@ final class DashboardView: BaseFlexView {
     let statusView: UIView
     let statusLabel: UILabel
     let syncingImageView: UIImageView
-    let cryptoAmountLabel: UILabel
-    let cryptoTitleLabel: UILabel
+    let balanceAmountLabel: UILabel
+    let balanceTitleLabel: UILabel
+    let unlockedAmountLabel: UILabel
+    let unlockedTitleLabel: UILabel
     let receiveButton: UIButton
     let sendButton: UIButton
     let buttonsRow: UIView
@@ -63,8 +65,10 @@ final class DashboardView: BaseFlexView {
         cardView = CardView()
         progressBar = ProgressBar()
         statusLabel = UILabel.withLightText(fontSize: 10)
-        cryptoAmountLabel = UILabel(fontSize: 33)
-        cryptoTitleLabel = UILabel(fontSize: 16)
+        balanceAmountLabel = UILabel(fontSize: 33)
+        balanceTitleLabel = UILabel(fontSize: 16)
+        unlockedAmountLabel = UILabel(fontSize: 33)
+        unlockedTitleLabel = UILabel(fontSize: 16)
         cryptoIconView = UIImageView()
         receiveButton = PrimaryButton(title: NSLocalizedString("receive", comment: ""))
         sendButton = PrimaryButton(title: NSLocalizedString("send", comment: ""))
@@ -83,11 +87,14 @@ final class DashboardView: BaseFlexView {
     override func configureView() {
         super.configureView()
         statusLabel.textAlignment = .center
-        cryptoAmountLabel.textAlignment = .center
-        cryptoTitleLabel.textColor = UIColor.vividBlue
-        cryptoTitleLabel.textAlignment = .center
+        balanceAmountLabel.textAlignment = .center
+        balanceTitleLabel.textColor = UIColor.vividBlue
+        balanceTitleLabel.textAlignment = .center
+        unlockedAmountLabel.textAlignment = .center
+        unlockedTitleLabel.textColor = UIColor.vividBlue
+        unlockedTitleLabel.textAlignment = .center
         transactionsTableView.separatorStyle = .none
-        tableHeaderView.frame = CGRect(origin: .zero, size: CGSize(width: 0, height: 365))
+        tableHeaderView.frame = CGRect(origin: .zero, size: CGSize(width: 0, height: 415))
         transactionsTableView.tableHeaderView = tableHeaderView
         transactionsTableView.tableFooterView = UIView()
         transactionsTableView.backgroundColor = .clear
@@ -111,9 +118,11 @@ final class DashboardView: BaseFlexView {
         
         cardView.flex.alignItems(.center).padding(20, 20, 30, 20).justifyContent(.spaceBetween).alignItems(.center).define { flex in
             flex.addItem(cryptoIconView).minHeight(21).minWidth(21).marginBottom(17)
-            flex.addItem(cryptoTitleLabel).width(100%).marginBottom(10)
-            flex.addItem(cryptoAmountLabel).width(100%).marginLeft(30).marginRight(30)
-            flex.addItem(statusView).width(100%).marginTop(30).height(30)
+            flex.addItem(balanceTitleLabel).width(100%).marginBottom(10)
+            flex.addItem(balanceAmountLabel).width(100%).marginLeft(30).marginRight(30)
+            flex.addItem(unlockedTitleLabel).width(100%).marginVertical(10)
+            flex.addItem(unlockedAmountLabel).width(100%).marginLeft(30).marginRight(30)
+            flex.addItem(statusView).width(100%).marginTop(17).height(30)
             flex.addItem(progressBar).width(100%).height(4)
         }
         

@@ -13,7 +13,6 @@ extension TransactionDescription: CellItem {
 final class DashboardController: BaseViewController<DashboardView>, StoreSubscriber, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     let navigationTitleView = WalletsNavigationTitle()
     weak var dashboardFlow: DashboardFlow?
-    private var showAbleBalance: Bool
     private(set) var syncButton: UIBarButtonItem?
     private var transactions: [TransactionDescription] = []
     private var initialHeight: UInt64
@@ -27,7 +26,6 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     init(store: Store<ApplicationState>, dashboardFlow: DashboardFlow?) {
         self.store = store
         self.dashboardFlow = dashboardFlow
-        showAbleBalance = true
         initialHeight = 0
         super.init()
         tabBarItem = UITabBarItem(
@@ -48,9 +46,6 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         contentView.shortStatusBarView.receiveButton.addTarget(self, action: #selector(presentReceive), for: .touchUpInside)
         contentView.shortStatusBarView.sendButton.addTarget(self, action: #selector(presentSend), for: .touchUpInside)
         contentView.shortStatusBarView.isHidden = true
-        let onCryptoAmountTap = UITapGestureRecognizer(target: self, action: #selector(changeShownBalance))
-        contentView.cryptoAmountLabel.isUserInteractionEnabled = true
-        contentView.cryptoAmountLabel.addGestureRecognizer(onCryptoAmountTap)
         updateCryptoIcon(for: store.state.walletState.walletType)
         
         navigationTitleView.switchHandler = { [weak self] in
@@ -71,9 +66,9 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         store.subscribe(self)
-//        onStateChange(store.state)
-//        contentView.statusView.flex.markDirty()
-//        contentView.rootFlexContainer.flex.layout()
+        onStateChange(store.state)
+        contentView.statusView.flex.markDirty()
+        contentView.rootFlexContainer.flex.layout()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,7 +84,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     
     func onStateChange(_ state: ApplicationState) {
         updateStatus(state.blockchainState.connectionStatus)
-        updateCryptoBalance(showAbleBalance ? state.balanceState.unlockedBalance : state.balanceState.balance)
+        updateCryptoBalance(balance: state.balanceState.balance, unlocked: state.balanceState.unlockedBalance)
         onWalletChange(state.walletState, state.blockchainState)
         updateTransactions(state.transactionsState.transactions)
         updateInitialHeight(state.blockchainState)
@@ -140,21 +135,14 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     func scrollViewDidScroll(_ scrollView: UIScrollView) {        
         guard scrollView.contentOffset.y > contentView.cardView.frame.height else {
             contentView.shortStatusBarView.isHidden = true
-            updateCryptoBalance(store.state.balanceState.balance)
             return
         }
         
         contentView.shortStatusBarView.isHidden = false
-        updateCryptoBalance(store.state.balanceState.balance)
+        updateCryptoBalance(balance: store.state.balanceState.balance, unlocked: store.state.balanceState.unlockedBalance)
         contentView.shortStatusBarView.receiveButton.flex.markDirty()
         contentView.shortStatusBarView.sendButton.flex.markDirty()
         contentView.shortStatusBarView.flex.layout()
-    }
-    
-    @objc
-    private func changeShownBalance() {
-        showAbleBalance = !showAbleBalance
-        onStateChange(store.state)
     }
 
     private func onWalletChange(_ walletState: WalletState, _ blockchainState: BlockchainState) {
@@ -278,18 +266,21 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         contentView.hideSyncingIcon()
     }
     
-    private func updateCryptoBalance(_ amount: Amount) {
+    private func updateCryptoBalance(balance: Amount, unlocked: Amount) {
         guard contentView.shortStatusBarView.isHidden else {
-            updateShortCryptoBalance(amount)
+            updateShortCryptoBalance(balance)
             return
         }
         
-        contentView.cryptoTitleLabel.text = "LOKI"
-            + " "
-            + (showAbleBalance ? NSLocalizedString("available_balance", comment: "") : NSLocalizedString("full_balance", comment: ""))
-        contentView.cryptoAmountLabel.text = amount.formatted()
-        contentView.cryptoTitleLabel.flex.markDirty()
-        contentView.cryptoAmountLabel.flex.markDirty()
+        contentView.balanceTitleLabel.text = NSLocalizedString("full_balance", comment: "")
+        contentView.balanceAmountLabel.text = balance.formatted()
+        contentView.balanceTitleLabel.flex.markDirty()
+        contentView.balanceAmountLabel.flex.markDirty()
+        
+        contentView.unlockedTitleLabel.text = NSLocalizedString("available_balance", comment: "")
+        contentView.unlockedAmountLabel.text = unlocked.formatted()
+        contentView.unlockedTitleLabel.flex.markDirty()
+        contentView.unlockedAmountLabel.flex.markDirty()
     }
     
     private func updateShortCryptoBalance(_ amount: Amount) {
