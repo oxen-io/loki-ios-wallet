@@ -12,7 +12,7 @@ final class TransactionDetailsCell: FlexCell {
     
     override func configureView() {
         super.configureView()
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Theme.current.tableCell.background
         titleLabel.numberOfLines = 0
         valueLabel.numberOfLines = 0
     }

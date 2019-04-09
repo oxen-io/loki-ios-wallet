@@ -40,7 +40,7 @@ final class AuthenticationViewController: BaseViewController<BaseFlexView> {
         super.viewWillAppear(animated)
         guard navigationController != nil else { return }
         
-        let doneButton = StandartButton(image: UIImage(named: "close_symbol")?.resized(to: CGSize(width: 10, height: 10)))
+        let doneButton = StandartButton(image: UIImage(named: "close_icon_white")?.resized(to: CGSize(width: 10, height: 10)))
         doneButton.frame = CGRect(origin: .zero, size: CGSize(width: 28, height: 28))
         doneButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneButton)

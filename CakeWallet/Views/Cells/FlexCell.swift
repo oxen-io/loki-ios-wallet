@@ -12,6 +12,13 @@ class FlexCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func configureView() {
+        super.configureView()
+        let selectionColor = UIView() as UIView
+        selectionColor.backgroundColor = Theme.current.tableCell.selected
+        selectedBackgroundView = selectionColor
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         layout()

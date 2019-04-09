@@ -64,7 +64,7 @@ final class ReceiveViewController: BaseViewController<ReceiveView> {
         contentView.copyIntegratedButton.alertPresenter = self
         contentView.copyPaymentIdButton.alertPresenter = self
         switchOptionsButton()
-        let doneButton = StandartButton(image: UIImage(named: "close_symbol")?.resized(to: CGSize(width: 10, height: 12)))
+        let doneButton = StandartButton(image: UIImage(named: "close_icon_white")?.resized(to: CGSize(width: 10, height: 12)))
         doneButton.frame = CGRect(origin: .zero, size: CGSize(width: 32, height: 32))
         doneButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneButton)

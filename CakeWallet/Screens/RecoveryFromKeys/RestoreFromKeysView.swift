@@ -45,13 +45,19 @@ final class FloatingLabelTextView: JVFloatLabeledTextView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        addBottomBorderWithColor(color: UIColor(hex: 0xe0e9f6), width: 2)
+        addBottomBorderWithColor(color: Theme.current.labelField.titleColor, width: 2)
     }
     
     override func configureView() {
         super.configureView()
         font = UIFont.systemFont(ofSize: 14)
-        placeholderTextColor = UIColor(hex: 0x9bacc5) // FIXME: Unnamed cons
+        placeholderTextColor = Theme.current.labelField.titleColor
+
+        textColor = Theme.current.labelField.textColor
+        tintColor = Theme.current.labelField.textColor
+        
+        floatingLabelTextColor = Theme.current.labelField.titleColor
+        floatingLabelActiveTextColor = Theme.current.labelField.selectedTitleColor
     }
 }
 

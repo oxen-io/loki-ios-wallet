@@ -12,13 +12,17 @@ final class NodeTableCell: FlexCell {
     
     override func configureView() {
         super.configureView()
+        selectionStyle = .none
+        
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 15
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Theme.current.tableCell.background
         backgroundColor = .clear
         indicatorView.layer.masksToBounds = false
         indicatorView.layer.cornerRadius = 5
-        contentView.layer.applySketchShadow(color: .wildDarkBlue, alpha: 0.25, x: 10, y: 3, blur: 13, spread: 2)
+        
+        let lighter = Theme.current.tableCell.background.lighterColor(percent: 0.7);
+        contentView.layer.applySketchShadow(color: lighter , alpha: 0.25, x: 10, y: 5, blur: 13, spread: 3)
     }
     
     override func configureConstraints() {
@@ -39,8 +43,8 @@ final class NodeTableCell: FlexCell {
         addressLabel.text = address
         addressLabel.flex.markDirty()
         indicatorView.backgroundColor = isAble ? .greenMalachite : .red
-        contentView.backgroundColor = isCurrent ? .vividBlue : .white
-        addressLabel.textColor = isCurrent ? .white : .black
+        contentView.backgroundColor = isCurrent ? .lokiBlack40 : Theme.current.tableCell.background
+        addressLabel.textColor = Theme.current.tableCell.text
         contentView.flex.layout()
     }
 }
@@ -52,13 +56,15 @@ final class LangTableCcell: FlexCell {
     
     override func configureView() {
         super.configureView()
+        selectionStyle = .none
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 15
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Theme.current.tableCell.background
         backgroundColor = .clear
-        contentView.layer.applySketchShadow(color: .wildDarkBlue, alpha: 0.25, x: 10, y: 3, blur: 13, spread: 2)
+        
+        let lighter = Theme.current.tableCell.background.lighterColor(percent: 0.7);
+        contentView.layer.applySketchShadow(color: lighter , alpha: 0.25, x: 10, y: 5, blur: 13, spread: 3)
         textLabel?.font = UIFont.systemFont(ofSize: 14) //fixme
-        selectionStyle = .none
     }
     
     override func configureConstraints() {
@@ -80,8 +86,8 @@ final class LangTableCcell: FlexCell {
     
     func configure(lang: Languages, isCurrent: Bool) {
         textLabel?.text = lang.formatted()
-        contentView.backgroundColor = isCurrent ? .vividBlue : .white
-        textLabel?.textColor = isCurrent ? .white : .black
+        contentView.backgroundColor = isCurrent ? .lokiBlack40 : Theme.current.tableCell.background
+        textLabel?.textColor = Theme.current.tableCell.text
         contentView.flex.layout()
     }
 }

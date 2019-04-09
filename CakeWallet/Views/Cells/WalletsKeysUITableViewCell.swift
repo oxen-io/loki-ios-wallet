@@ -13,6 +13,8 @@ final class WalletsKeysUITableViewCell: FlexCell {
     override func configureView() {
         super.configureView()
         titleLabel.numberOfLines = 0
+        backgroundColor = .clear
+        titleLabel.textColor = Theme.current.tableCell.text
     }
     
     override func configureConstraints() {

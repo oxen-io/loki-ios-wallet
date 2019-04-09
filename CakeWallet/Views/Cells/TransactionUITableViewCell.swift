@@ -23,7 +23,7 @@ final class TransactionUITableViewCell: FlexCell {
     
     override func configureView() {
         super.configureView()
-        backgroundColor = .white
+        backgroundColor = Theme.current.tableCell.background
     }
     
     override func configureConstraints() {
@@ -61,6 +61,10 @@ final class TransactionUITableViewCell: FlexCell {
         let amountPrefix: String
         var status = ""
         
+        imageView?.backgroundColor = Theme.current.tableCell.background.lighterColor(percent: 0.15)
+        imageView?.clipsToBounds = true
+        imageView?.layer.cornerRadius = 4.0
+        
         if direction == .incoming {
             status = NSLocalizedString("receive", comment: "") // FIXME: Hardcoded value
             color = .greenMalachite
@@ -72,6 +76,7 @@ final class TransactionUITableViewCell: FlexCell {
             amountPrefix = "-"
             imageView?.image = UIImage(named: "arrow_up_bg")?.resized(to: CGSize(width: 22, height: 22))
         }
+        
         
         if isPending {
             status += " (" +  NSLocalizedString("pending", comment: "") + ")"

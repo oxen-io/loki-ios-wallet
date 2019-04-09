@@ -12,7 +12,9 @@ final class PinCodeKeyButton: UIButton {
         super.init(frame: .zero)
         
         if .del == pinCode {
-            setImage(UIImage(named: "delete_icon"), for: .normal)
+            let image = UIImage(named: "delete_icon")?.withRenderingMode(.alwaysTemplate)
+            setImage(image, for: .normal)
+            tintColor = Theme.current.pinKeyReversed.text
         } else {
             setTitle(pinCode.string(), for: .normal)
         }
@@ -39,10 +41,10 @@ final class PinCodeKeyButton: UIButton {
     override func configureView() {
         showsTouchWhenHighlighted = false
         contentHorizontalAlignment = .center
-        setTitleColor(.white, for: .normal)
+        setTitleColor(Theme.current.pinKey.text, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 25)
         backgroundColor = Theme.current.pinKey.background
-        layer.applySketchShadow(color: UIColor(hex: 0x9BACC5), alpha: 0.45, x: 0, y: 19, blur: 22, spread: -11)
+        layer.applySketchShadow(color: Theme.current.pinKey.shadow, alpha: 0.45, x: 0, y: 19, blur: 22, spread: -11)
     }
     
     override func layoutSublayers(of layer: CALayer) {

@@ -39,7 +39,7 @@ final class CWAlertView: CWBaseAlertView {
     }
     
     override func configureConstraints() {
-        contentView.flex.backgroundColor(.white).alignItems(.center).define { flex in
+        contentView.flex.backgroundColor(Theme.current.container.background).alignItems(.center).define { flex in
             flex.addItem(statusImageView).width(100).height(100).alignSelf(.center).position(.absolute).top(-30)
             
             if
@@ -57,7 +57,7 @@ final class CWAlertView: CWBaseAlertView {
                 flex.addItem(innerView)
             }
             
-            flex.addItem(separatorView).width(100%).height(1).backgroundColor(.lightBlueGrey)
+            flex.addItem(separatorView).width(100%).height(1).backgroundColor(Theme.current.container.background.lighterColor(percent: 0.3))
             
             if let activityIndicatorView = activityIndicatorView {
                 flex.addItem(activityIndicatorView).width(50).height(50)
@@ -89,7 +89,7 @@ final class CWAlertView: CWBaseAlertView {
             return
         }
         
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     }
 }
 
@@ -184,15 +184,15 @@ class CWBaseAlertView: BaseFlexView {
     override func configureView() {
         super.configureView()
         isOpaque = true
-        rootFlexContainer.backgroundColor = UIColor.whiteSmoke.withAlphaComponent(0.4)
+        rootFlexContainer.backgroundColor = Theme.current.container.background.withAlphaComponent(0.4)
         contentView.layer.masksToBounds = false
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
-        titleLabel.textColor = UIColor.blueBolt
+        titleLabel.textColor = UIColor.lokiGreen
         contentView.layer.shadowRadius = 20
         contentView.layer.shadowOffset = CGSize(width: 2, height: 1)
         contentView.layer.shadowOpacity = 0.3
-        contentView.layer.shadowColor = UIColor.lightGray.cgColor
+        contentView.layer.shadowColor = UIColor.lokiBlack50.cgColor
         //        actionsStackView.distribution = .fill
         //        actionsStackView.alignment = .fill
     }

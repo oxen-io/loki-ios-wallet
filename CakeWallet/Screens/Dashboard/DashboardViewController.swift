@@ -60,7 +60,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
             action: #selector(reconnectAction)
         )
         navigationItem.rightBarButtonItem = syncButton
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.vividBlue
+        navigationItem.rightBarButtonItem?.tintColor = Theme.current.bar.tint
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -284,7 +284,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     }
     
     private func updateShortCryptoBalance(_ amount: Amount) {
-        contentView.shortStatusBarView.cryptoAmountLabel.text = amount.formatted()
+        contentView.shortStatusBarView.cryptoAmountLabel.text = amount.formatted(pretty: true)
         contentView.shortStatusBarView.cryptoAmountLabel.flex.markDirty()
     }
     

@@ -27,10 +27,11 @@ final class NodesView: BaseFlexView {
         let height = self.rootFlexContainer.frame.size.height - 60
         table.flex.height(height).width(100%).markDirty()
         rootFlexContainer.flex.layout(mode: .adjustHeight)
+        autoNodeSwitchLabel.textColor = .white
     }
     
     override func configureConstraints() {
-        autoNodeSwitchContainer.flex.direction(.row).backgroundColor(.white).padding(0, 20, 0, 20).justifyContent(.spaceBetween).alignItems(.center).height(60).define { flex in
+        autoNodeSwitchContainer.flex.direction(.row).backgroundColor(.lokiBlack80).padding(0, 20, 0, 20).justifyContent(.spaceBetween).alignItems(.center).height(60).define { flex in
             flex.addItem(autoNodeSwitchLabel)
             flex.addItem(autoNodeSwitch).width(70).height(35)
         }

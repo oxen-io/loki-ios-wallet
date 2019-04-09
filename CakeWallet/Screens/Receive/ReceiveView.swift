@@ -56,7 +56,7 @@ final class ReceiveView: BaseScrollFlexView {
         addressLabel.numberOfLines = 0
         amountTextField.keyboardType = .decimalPad
         switchOptionsButton.setTitle(NSLocalizedString("more_options", comment: ""), for: .normal)
-        switchOptionsButton.setTitleColor(UIColor(hex: 0x00b9fc), for: .normal) // FIXME: Unnamed const
+        switchOptionsButton.setTitleColor(Theme.current.secondaryButton.text, for: .normal) // FIXME: Unnamed const
         resetButton.tintColor = .white
         newPaymentId.tintColor = .white
     }

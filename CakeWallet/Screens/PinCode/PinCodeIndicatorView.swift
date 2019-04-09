@@ -18,7 +18,7 @@ final class PinCodeIndicatorView: BaseView {
         addSubview(innerCircleView)
         backgroundColor = Theme.current.pin.background
         layer.cornerRadius = 12
-        layer.applySketchShadow(color: UIColor(hex: 0x9BACC5), alpha: 0.25, x: 0, y: 10, blur: 20, spread: -10)
+        layer.applySketchShadow(color: Theme.current.pin.shadow, alpha: 0.25, x: 0, y: 10, blur: 20, spread: -10)
     }
     
     override func configureConstraints() {

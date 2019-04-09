@@ -45,6 +45,7 @@ final class PinCodeKeyboard: BaseView {
                         if $0 == .empty || $0 == .del {
                             key.backgroundColor = Theme.current.pinKeyReversed.background
                             key.setTitleColor(Theme.current.pinKeyReversed.text, for: .normal)
+                            key.layer.applySketchShadow(color: Theme.current.pinKeyReversed.shadow, alpha: 0.45, x: 0, y: 19, blur: 22, spread: -11)
                         }
                     }
                 })

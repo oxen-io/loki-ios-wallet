@@ -22,7 +22,7 @@ final class ShortStatusBarView: BaseView {
         sendButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         receiveButton.titleLabel?.numberOfLines = 1
         sendButton.titleLabel?.numberOfLines = 1
-        layer.applySketchShadow(color: UIColor.gray, alpha: 0.34, x: 0, y: 10, blur: 20, spread: -10)
+        layer.applySketchShadow(color: UIColor.black, alpha: 0.34, x: 0, y: 10, blur: 20, spread: -10)
         layer.masksToBounds = false
         layer.cornerRadius = 15
     }
@@ -88,10 +88,10 @@ final class DashboardView: BaseFlexView {
         super.configureView()
         statusLabel.textAlignment = .center
         balanceAmountLabel.textAlignment = .center
-        balanceTitleLabel.textColor = UIColor.vividBlue
+        balanceTitleLabel.textColor = UIColor.lokiGreen
         balanceTitleLabel.textAlignment = .center
         unlockedAmountLabel.textAlignment = .center
-        unlockedTitleLabel.textColor = UIColor.vividBlue
+        unlockedTitleLabel.textColor = UIColor.lokiGreen
         unlockedTitleLabel.textAlignment = .center
         transactionsTableView.separatorStyle = .none
         tableHeaderView.frame = CGRect(origin: .zero, size: CGSize(width: 0, height: 415))
