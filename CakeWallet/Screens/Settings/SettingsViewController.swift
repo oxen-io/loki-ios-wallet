@@ -352,39 +352,55 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
             daemonSettingsCellItem
         ]
         
+        let links = [
+            [
+                "name": "Website",
+                "link": "https://loki.network"
+            ],
+            [
+                "name": "Telegram",
+                "link": "https://t.me/LokiCommunity"
+            ],
+            [
+                "name": "Discord",
+                "link": "https://discordapp.com/invite/67GXfD6"
+            ],
+            [
+                "name": "Reddit",
+                "link": "https://www.reddit.com/r/LokiProject"
+            ],
+            [
+                "name": "Github",
+                "link": "https://github.com/loki-project/loki-ios-wallet"
+            ],
+        ]
         
-        //fixme
-        let email = "support@cakewallet.io"
-        let telegram = "https://t.me/cake_wallet"
-        let twitter = "cakewalletXMR"
-        let morphEmail = "contact@morphtoken.com"
-        let xmrtoEmail = "support@xmr.to"
+        let linkNames: [String] = links.compactMap { $0["name"] ?? nil }
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = 5
         paragraphStyle.lineSpacing = 5
         let attributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15),
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15),
             NSAttributedStringKey.paragraphStyle: paragraphStyle,
             NSAttributedStringKey.foregroundColor: Theme.current.tableCell.text
         ]
         let attributedString = NSMutableAttributedString(
-            string: String(format: "Email: %@\nTelegram: %@\nTwitter: @%@\nExchange: %@\nExchange(xmr->btc): %@", email, telegram, twitter, morphEmail, xmrtoEmail),
+            string: linkNames.joined(separator: "\n"),
             attributes: attributes)
-        let telegramAddressRange = attributedString.mutableString.range(of: telegram)
-        attributedString.addAttribute(.link, value: telegram, range: telegramAddressRange)
-        let twitterAddressRange = attributedString.mutableString.range(of: String(format: "@%@", twitter))
-        attributedString.addAttribute(.link, value: String(format: "https://twitter.com/%@", twitter), range: twitterAddressRange)
-        let emailAddressRange = attributedString.mutableString.range(of: email)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", email), range: emailAddressRange)
-        let morphAddressRange = attributedString.mutableString.range(of: morphEmail)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", morphEmail), range: morphAddressRange)
-        let xmrAddressRange = attributedString.mutableString.range(of: xmrtoEmail)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", morphEmail), range: xmrAddressRange)
-        let contactUsCellItem = SettingsTextViewCellItem(attributedString: attributedString)
         
+        for link in links {
+            guard let name = link["name"], let link = link["link"] else {
+                continue;
+            }
+            
+            let nameRange = attributedString.mutableString.range(of: name)
+            attributedString.addAttribute(.link, value: link, range: nameRange)
+        }
+        
+        let contactUsCellItem = SettingsTextViewCellItem(attributedString: attributedString)
         sections[.support] = [
             contactUsCellItem,
-            termSettingsCellItem
         ]
         
         if
