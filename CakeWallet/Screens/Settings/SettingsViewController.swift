@@ -19,6 +19,9 @@ final class TextViewUITableViewCell: FlexCell {
         textView.isEditable = false
         contentView.addSubview(textView)
         accessoryType = .none
+        backgroundColor = Theme.current.tableCell.background
+        textView.backgroundColor = .clear
+        textView.textColor = Theme.current.tableCell.text
     }
     
     override func configureConstraints() {
@@ -60,7 +63,7 @@ final class SwitchView: BaseView {
         super.configureView()
         onValueChange(withAnimation: false)
         let onTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapHandler))
-        backgroundColor = .whiteSmoke
+        backgroundColor = .lokiBlack40
         layer.masksToBounds = false
         indicatorImageView.layer.masksToBounds = false
         indicatorView.addSubview(indicatorImageView)
@@ -93,7 +96,7 @@ final class SwitchView: BaseView {
         
         if isOn {
             image = UIImage(named: "check_mark")
-            backgroundColor = .vividBlue
+            backgroundColor = .lokiGreen
             let x = frame.size.width - indicatorSize.width - 5
             indicatorFrame = CGRect(origin: CGPoint(x: x, y: 5), size: indicatorSize) //self.indicatorView.frame.size
         } else {
@@ -105,7 +108,7 @@ final class SwitchView: BaseView {
         indicatorImageView.image = image
         indicatorImageView.frame = CGRect(origin: CGPoint(x: 7, y: 7), size: CGSize(width: 10, height: 10))
         indicatorView.backgroundColor = backgroundColor
-        indicatorView.layer.applySketchShadow(color: backgroundColor, alpha: 0.34, x: 0, y: 5, blur: 14, spread: 5)
+        indicatorView.layer.applySketchShadow(color: backgroundColor, alpha: 0.25, x: 0, y: 5, blur: 14, spread: 5)
         
         if isAnimated {
             UIView.animate(withDuration: 0.5) {
@@ -146,10 +149,21 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
         }
         
         func setup(cell: UITableViewCell) {
+            cell.backgroundColor = Theme.current.tableCell.background
+            cell.textLabel?.textColor = Theme.current.tableCell.text
             cell.textLabel?.text = title
             cell.imageView?.image = image
-            cell.accessoryView = UIImageView(image: UIImage(named: "arrow_right")?.resized(to: CGSize(width: 6, height: 10)))
-//            cell.tintColor = .vividBlue
+            
+            let arrowRight = UIImage(named: "arrow_right")?
+                .resized(to: CGSize(width: 6, height: 10))
+                .withRenderingMode(.alwaysTemplate)
+            let imageView = UIImageView(image: arrowRight)
+            imageView.tintColor = Theme.current.tableCell.tint
+            cell.accessoryView = imageView
+            
+            let selectionColor = UIView() as UIView
+            selectionColor.backgroundColor = Theme.current.tableCell.selected
+            cell.selectedBackgroundView = selectionColor
         }
     }
     
@@ -168,12 +182,16 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
         }
         
         func setup(cell: UITableViewCell) {
+            cell.backgroundColor = Theme.current.tableCell.background
+            cell.textLabel?.textColor = Theme.current.tableCell.text
             cell.textLabel?.text = title
             cell.imageView?.image = image
             cell.accessoryView = switcher
             switcher.onChangeHandler = { isOn in
                 self.action?(isOn, self)
             }
+            
+            cell.selectionStyle = .none
         }
         
         private func config() {
@@ -207,6 +225,10 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
             cell.configure(title: title, pickerOptions: pickerOptions, selectedOption: selectedIndex, action: action)
             cell.imageView?.image = image
             cell.onFinish = onFinish
+            
+            let selectionColor = UIView() as UIView
+            selectionColor.backgroundColor = Theme.current.tableCell.selected
+            cell.selectedBackgroundView = selectionColor
         }
     }
     
@@ -316,7 +338,7 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
                 self?.settingsFlow?.change(route: .terms)
         })
         sections[.wallets] = [
-            fiatCurrencyCellItem,
+//            fiatCurrencyCellItem, // DISABLED because we don't need it
             feePriorityCellItem
         ]
         sections[.personal] = [
@@ -330,38 +352,55 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
             daemonSettingsCellItem
         ]
         
+        let links = [
+            [
+                "name": "Website",
+                "link": "https://loki.network"
+            ],
+            [
+                "name": "Telegram",
+                "link": "https://t.me/LokiCommunity"
+            ],
+            [
+                "name": "Discord",
+                "link": "https://discordapp.com/invite/67GXfD6"
+            ],
+            [
+                "name": "Reddit",
+                "link": "https://www.reddit.com/r/LokiProject"
+            ],
+            [
+                "name": "Github",
+                "link": "https://github.com/loki-project/loki-ios-wallet"
+            ],
+        ]
         
-        //fixme
-        let email = "support@cakewallet.io"
-        let telegram = "https://t.me/cake_wallet"
-        let twitter = "cakewalletXMR"
-        let morphEmail = "contact@morphtoken.com"
-        let xmrtoEmail = "support@xmr.to"
+        let linkNames: [String] = links.compactMap { $0["name"] ?? nil }
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = 5
         paragraphStyle.lineSpacing = 5
         let attributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15),
-            NSAttributedStringKey.paragraphStyle: paragraphStyle
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15),
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.foregroundColor: Theme.current.tableCell.text
         ]
         let attributedString = NSMutableAttributedString(
-            string: String(format: "Email: %@\nTelegram: %@\nTwitter: @%@\nExchange: %@\nExchange(xmr->btc): %@", email, telegram, twitter, morphEmail, xmrtoEmail),
+            string: linkNames.joined(separator: "\n"),
             attributes: attributes)
-        let telegramAddressRange = attributedString.mutableString.range(of: telegram)
-        attributedString.addAttribute(.link, value: telegram, range: telegramAddressRange)
-        let twitterAddressRange = attributedString.mutableString.range(of: String(format: "@%@", twitter))
-        attributedString.addAttribute(.link, value: String(format: "https://twitter.com/%@", twitter), range: twitterAddressRange)
-        let emailAddressRange = attributedString.mutableString.range(of: email)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", email), range: emailAddressRange)
-        let morphAddressRange = attributedString.mutableString.range(of: morphEmail)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", morphEmail), range: morphAddressRange)
-        let xmrAddressRange = attributedString.mutableString.range(of: xmrtoEmail)
-        attributedString.addAttribute(.link, value: String(format: "mailto:%@", morphEmail), range: xmrAddressRange)
-        let contactUsCellItem = SettingsTextViewCellItem(attributedString: attributedString)
         
+        for link in links {
+            guard let name = link["name"], let link = link["link"] else {
+                continue;
+            }
+            
+            let nameRange = attributedString.mutableString.range(of: name)
+            attributedString.addAttribute(.link, value: link, range: nameRange)
+        }
+        
+        let contactUsCellItem = SettingsTextViewCellItem(attributedString: attributedString)
         sections[.support] = [
             contactUsCellItem,
-            termSettingsCellItem
         ]
         
         if

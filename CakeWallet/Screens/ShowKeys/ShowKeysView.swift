@@ -19,6 +19,7 @@ final class ShowKeysView: BaseFlexView {
         table.tableFooterView = UIView()
         table.allowsSelection = false
         table.isScrollEnabled = false
+        table.backgroundColor = Theme.current.tableCell.background
     }
     
     override func configureConstraints() {

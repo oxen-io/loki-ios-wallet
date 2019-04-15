@@ -23,16 +23,8 @@ final class CWAlertViewController: BaseViewController<CWAlertView> {
     
     private let innerView: UIView?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .`default`
-    }
-    
     override var childViewControllerForStatusBarStyle: UIViewController? {
         return nil
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     init(title: String?, message: String? = nil, status: Status) {

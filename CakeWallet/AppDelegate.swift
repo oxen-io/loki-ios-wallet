@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var blurEffectView: UIVisualEffectView?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         do {
             try migrateKeychainAccessibilities(keychain: KeychainStorageImpl.standart)
         } catch {
@@ -180,19 +181,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setAppearance() {
-        UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().layer.borderWidth = 0.0
         UITabBar.appearance().clipsToBounds = true
-        UITabBar.appearance().tintColor = .vividBlue
+        UITabBar.appearance().tintColor = Theme.current.bar.tint
         UITabBar.appearance().unselectedItemTintColor = UIColor(hex: 0xC0D4E2)
+        UITabBar.appearance().barTintColor = Theme.current.bar.barTint
 //        UINavigationBar.appearance().isTranslucent = false
-//        UINavigationBar.appearance().tintColor = UIColor(hex: 0x006494) // FIX-ME: Unnamed constant
+        UINavigationBar.appearance().tintColor = Theme.current.bar.tint // FIX-ME: Unnamed constant
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.foregroundColor: Theme.current.bar.text,
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)
         ]
     }

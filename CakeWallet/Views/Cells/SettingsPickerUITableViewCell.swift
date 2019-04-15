@@ -29,6 +29,9 @@ final class SettingsPickerUITableViewCell<Item: Formatted>: FlexCell, UIPickerVi
         pinckerTextField.delegate = self
         let onTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
         addGestureRecognizer(onTapGesture)
+        
+        backgroundColor = Theme.current.tableCell.background
+        self.textLabel?.textColor = Theme.current.tableCell.text
     }
     
     override func configureConstraints() {

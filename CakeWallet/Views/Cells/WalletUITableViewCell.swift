@@ -26,7 +26,7 @@ final class WalletUITableViewCell: FlexCell {
         nameLabel.text = wallet.name
         
         if isCurrent {
-            nameLabel.textColor = .vividBlue
+            nameLabel.textColor = .lokiGreen
             accessoryType = .checkmark
         } else {
             nameLabel.textColor = Theme.current.text
@@ -41,6 +41,8 @@ final class WalletUITableViewCell: FlexCell {
     override func configureView() {
         super.configureView()
         selectionStyle = .none
+        backgroundColor = .clear
+
     }
     
     override func configureConstraints() {

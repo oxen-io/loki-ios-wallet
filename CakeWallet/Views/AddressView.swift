@@ -60,6 +60,7 @@ final class AddressView: BaseFlexView {
     override func configureView() {
         super.configureView()
         textView.isScrollEnabled = false
+        textView.backgroundColor = .clear
         backgroundColor = .clear
         qrScanButton?.addTarget(self, action: #selector(scanQr), for: .touchUpInside)
     }

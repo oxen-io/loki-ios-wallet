@@ -17,7 +17,9 @@ final class WalletsNavigationTitle: BaseView {
     
     required init() {
         presentWalletsButton = UIButton(type: .custom)
-        arrowImageView = UIImageView.init(image: UIImage(named: "arrow_down"))
+        let arrowImage = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
+        arrowImageView = UIImageView.init(image: arrowImage)
+        arrowImageView.tintColor = Theme.current.bar.tint
         titleLabel = UILabel()
         super.init()
     }
@@ -30,6 +32,8 @@ final class WalletsNavigationTitle: BaseView {
         let onTapGesture = UITapGestureRecognizer.init(target: self, action: #selector(onHandler))
         addGestureRecognizer(onTapGesture)
         backgroundColor = .clear
+        
+        titleLabel.textColor = Theme.current.bar.text
     }
     
     override func layoutSubviews() {
