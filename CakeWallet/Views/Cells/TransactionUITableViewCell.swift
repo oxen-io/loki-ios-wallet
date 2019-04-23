@@ -61,10 +61,6 @@ final class TransactionUITableViewCell: FlexCell {
         let amountPrefix: String
         var status = ""
         
-        imageView?.backgroundColor = Theme.current.tableCell.background.lighterColor(percent: 0.15)
-        imageView?.clipsToBounds = true
-        imageView?.layer.cornerRadius = 4.0
-        
         if direction == .incoming {
             status = NSLocalizedString("receive", comment: "") // FIXME: Hardcoded value
             color = .greenMalachite

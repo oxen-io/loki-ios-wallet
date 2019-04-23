@@ -2228,7 +2228,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CakeWalletCore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CakeWalletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2261,7 +2261,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CakeWalletCore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CakeWalletCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -2312,7 +2312,7 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CWMonero;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(SWIFT_MODULE_NAME)/CWMonero-Bridging-Header.h";
@@ -2366,7 +2366,7 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CWMonero;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(SWIFT_MODULE_NAME)/CWMonero-Bridging-Header.h";
@@ -2428,7 +2428,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CakeWalletLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CakeWalletLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2462,7 +2462,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fotolockr.cakewallet.CakeWalletLib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lokinetwork.wallet.ios.CakeWalletLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
