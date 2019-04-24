@@ -19,7 +19,7 @@ final class RestoreViewController: BaseViewController<RecoverView> {
         contentView.fromSeedButton.addTarget(self, action: #selector(fromSeed), for: .touchUpInside)
         switch type {
         case .loki:
-            contentView.cryptoIconImageView.image = UIImage(named: "monero_logo")
+            contentView.cryptoIconImageView.image = UIImage(named: "loki_logo")
         case .bitcoin:
             break
         }

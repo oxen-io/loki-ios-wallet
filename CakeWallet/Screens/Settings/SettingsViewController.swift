@@ -253,8 +253,8 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
         super.init()
         tabBarItem = UITabBarItem(
             title: title,
-            image: UIImage(named: "settings_icon")?.resized(to: CGSize(width: 28, height: 28)).withRenderingMode(.alwaysOriginal),
-            selectedImage: UIImage(named: "settings_selected_icon")?.resized(to: CGSize(width: 28, height: 28)).withRenderingMode(.alwaysOriginal)
+            image: UIImage(named: "settings_icon")?.resized(to: CGSize(width: 28, height: 28)),
+            selectedImage: UIImage(named: "settings_selected_icon")?.resized(to: CGSize(width: 28, height: 28))
         )
     }
     

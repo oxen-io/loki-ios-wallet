@@ -30,8 +30,8 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
         super.init()
         tabBarItem = UITabBarItem(
             title: title,
-            image: UIImage(named: "wallet_icon")?.resized(to: CGSize(width: 28, height: 28)).withRenderingMode(.alwaysOriginal),
-            selectedImage: UIImage(named: "wallet_selected_icon")?.resized(to: CGSize(width: 28, height: 28)).withRenderingMode(.alwaysOriginal)
+            image: UIImage(named: "wallet_icon")?.resized(to: CGSize(width: 28, height: 28)),
+            selectedImage: UIImage(named: "wallet_selected_icon")?.resized(to: CGSize(width: 28, height: 28))
         )
     }
     
@@ -327,7 +327,7 @@ final class DashboardController: BaseViewController<DashboardView>, StoreSubscri
     private func updateCryptoIcon(for walletType: WalletType) {
         switch walletType {
         case .loki:
-            contentView.cryptoIconView.image = UIImage(named: "monero_logo")
+            contentView.cryptoIconView.image = UIImage(named: "loki_logo")
         default:
             break
         }
