@@ -26,16 +26,11 @@ final class WelcomeViewController: BaseViewController<WelcomeView> {
             // FIXME: Unnamed constant
             
             contentView.welcomeLabel.text = String(format: NSLocalizedString("welcome", comment: ""), appName)
-            contentView.welcomeSubtitleLabel.text = NSLocalizedString("first_wallet_text", comment: "")
         }
         
         // FIXME: Unnamed constant
 
         contentView.descriptionTextView.text = NSLocalizedString("starting_creation_selection", comment: "")
-        + "\n\n"
-        + NSLocalizedString("enjoy_this_wallet", comment: "")
-        + "\n\n"
-        + NSLocalizedString("love_your_feedback", comment: "")
     }
     
     @objc

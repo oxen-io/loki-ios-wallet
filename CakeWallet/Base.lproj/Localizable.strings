@@ -1,4 +1,4 @@
-"welcome" = "Welcome\nto %@";
+"welcome" = "Welcome to\n%@";
 "first_wallet_text" = "The first iOS wallet\nfor Loki";
 "InsufficientFundsWithAmount" = "Your sending amount of %@ (amount of %@ + fee of %@ is more than your balance of %@).";
 "InsufficientFunds" = "Your sending amount is more than your balance of %@.";

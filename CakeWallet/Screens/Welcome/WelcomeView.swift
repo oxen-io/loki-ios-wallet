@@ -5,7 +5,6 @@ final class WelcomeView: BaseScrollFlexViewWithBottomSection {
     let titleContainer: UIView
     let bodyContainer: UIView
     let welcomeLabel: UILabel
-    let welcomeSubtitleLabel: UILabel
     let descriptionTextView: UITextView
     let buttonsContiner: UIView
     let createWallet: UIButton
@@ -15,7 +14,6 @@ final class WelcomeView: BaseScrollFlexViewWithBottomSection {
         titleContainer = UIView()
         bodyContainer = UIView()
         welcomeLabel = UILabel(fontSize: 32)
-        welcomeSubtitleLabel = UILabel(fontSize: 24)
         descriptionTextView = UITextView()
         buttonsContiner = UIView()
         createWallet = PrimaryButton(title: NSLocalizedString("create_new", comment: ""))
@@ -25,6 +23,7 @@ final class WelcomeView: BaseScrollFlexViewWithBottomSection {
     
     override func configureView() {
         super.configureView()
+        descriptionTextView.textAlignment = .center
         descriptionTextView.font = .systemFont(ofSize: 20)
         descriptionTextView.textColor = UIColor(red: 126, green: 147, blue: 177)
         descriptionTextView.isEditable = false
@@ -33,14 +32,12 @@ final class WelcomeView: BaseScrollFlexViewWithBottomSection {
         descriptionTextView.layer.cornerRadius = 10
         descriptionTextView.isScrollEnabled = false
         welcomeLabel.numberOfLines = 0
-        welcomeSubtitleLabel.numberOfLines = 0
-        welcomeSubtitleLabel.textColor = UIColor(red: 126, green: 147, blue: 177)
+        welcomeLabel.textAlignment = .center
     }
     
     override func configureConstraints() {
         titleContainer.flex.define { flex in
             flex.addItem(welcomeLabel)
-            flex.addItem(welcomeSubtitleLabel)
         }
         
         bodyContainer.flex.define { flex in

@@ -1,4 +1,4 @@
-"welcome" = "欢迎\nto %@";
+"welcome" = "欢迎 to\n%@";
 "first_wallet_text" = "第一个Monero的iOS 钱包";
 "InsufficientFundsWithAmount" = "您的发送金额 %@ (金额 %@ + 费用 %@ 已超出您的余额 %@).";
 "InsufficientFunds" = "您的发送金额已超出您的余额%@.";
