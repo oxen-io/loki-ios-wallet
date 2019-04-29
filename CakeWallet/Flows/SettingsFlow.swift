@@ -6,7 +6,6 @@ final class SettingsFlow: Flow {
         case nodes
         case changePin
         case changeLanguage
-        case terms
     }
     
     var rootController: UIViewController {
@@ -50,9 +49,6 @@ final class SettingsFlow: Flow {
         case .changeLanguage:
             let changeLanguage = ChangeLanguageViewController()
             navigationController.pushViewController(changeLanguage, animated: true)
-        case .terms:
-            let termsViewController = TermsViewController()
-            navigationController.pushViewController(termsViewController, animated: true)
         }
     }
     

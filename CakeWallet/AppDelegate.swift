@@ -55,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let termsOfUseAccepted = UserDefaults.standard.bool(forKey: Configurations.DefaultsKeys.termsOfUseAccepted)
-        
         let pin = try? KeychainStorageImpl.standart.fetch(forKey: .pinCode)
 
         if !store.state.walletState.name.isEmpty && pin != nil {
@@ -88,10 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     self?.walletFlow?.change(route: .start)
                                     
                                     self?.window?.rootViewController = self?.walletFlow?.rootController
-                                    
-                                    if !termsOfUseAccepted {
-                                        self?.window?.rootViewController?.present(DisclaimerViewController(), animated: false)
-                                    }
                                 }
                             }
 
@@ -110,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self?.signUpFlow = nil
             }
             window?.rootViewController = signUpFlow?.rootController
-            signUpFlow?.change(route: .disclaimer)
+            signUpFlow?.change(route: .welcome)
         }
 
         window?.makeKeyAndVisible()

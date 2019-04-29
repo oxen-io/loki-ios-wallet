@@ -332,11 +332,6 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
             action: { [weak self] in
                 self?.settingsFlow?.change(route: .nodes)
         })
-        let termSettingsCellItem = SettingsCellItem(
-            title: NSLocalizedString("terms", comment: ""),
-            action: { [weak self] in
-                self?.settingsFlow?.change(route: .terms)
-        })
         sections[.wallets] = [
 //            fiatCurrencyCellItem, // DISABLED because we don't need it
             feePriorityCellItem

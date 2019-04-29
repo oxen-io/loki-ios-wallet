@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C337244217D0F2B000D259D /* migrateKeychainAccessibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C337243217D0F2B000D259D /* migrateKeychainAccessibilities.swift */; };
-		0C9B94A921B014FE001F9868 /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B94A821B014FE001F9868 /* DisclaimerView.swift */; };
-		0C9B94AB21B01506001F9868 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B94AA21B01506001F9868 /* DisclaimerViewController.swift */; };
 		0E6BF48BB73DAA86E0D5F8A6 /* Pods_CWMonero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFC943F97CD732D26614BF2 /* Pods_CWMonero.framework */; };
 		24166629225C5C5F0095C776 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24166628225C5C5F0095C776 /* UIColor+RGB.swift */; };
 		243687D1224DA8AF008A8CE4 /* libboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D0224DA8AF008A8CE4 /* libboost.a */; };
@@ -127,7 +125,6 @@
 		646FF2E820E1492B00ADF30C /* CakeWalletLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646FF2A320E11FFE00ADF30C /* CakeWalletLib.framework */; };
 		648D7F7C20F770A6004C6200 /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648D7F7B20F770A6004C6200 /* ExchangeView.swift */; };
 		648D7F7E20F7F26A004C6200 /* OnNewSubaddressAddedEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648D7F7D20F7F26A004C6200 /* OnNewSubaddressAddedEffect.swift */; };
-		649F9AD52148097C0071AF17 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F9AD42148097C0071AF17 /* TermsView.swift */; };
 		64A5AE1920E2490500BD6098 /* CakeWalletLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646FF2A320E11FFE00ADF30C /* CakeWalletLib.framework */; };
 		64A5AE1A20E2490500BD6098 /* CakeWalletLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 646FF2A320E11FFE00ADF30C /* CakeWalletLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64AA499F21455CAB002CE1FE /* MoneroWalletHistoryAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 645F891D214429BA00B085AC /* MoneroWalletHistoryAdapter.mm */; };
@@ -167,7 +164,6 @@
 		64C28A5C21039BFD00327509 /* ExchangeResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C28A5B21039BFD00327509 /* ExchangeResultView.swift */; };
 		64C28A5E21039C0500327509 /* ExchangeResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C28A5D21039C0500327509 /* ExchangeResultViewController.swift */; };
 		64C28A602104E7C000327509 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C28A5F2104E7C000327509 /* AddressView.swift */; };
-		64DACEDB214804CE0057B604 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DACEDA214804CE0057B604 /* TermsViewController.swift */; };
 		64DACEDF214807870057B604 /* Terms_of_Use.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 64DACEDD214807870057B604 /* Terms_of_Use.rtf */; };
 		64DACEE0214807870057B604 /* NodesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64DACEDE214807870057B604 /* NodesList.plist */; };
 		64EBA5DC20F3634B00997824 /* SubaddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBA5DB20F3634B00997824 /* SubaddressesView.swift */; };
@@ -353,8 +349,6 @@
 
 /* Begin PBXFileReference section */
 		0C337243217D0F2B000D259D /* migrateKeychainAccessibilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = migrateKeychainAccessibilities.swift; sourceTree = "<group>"; };
-		0C9B94A821B014FE001F9868 /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
-		0C9B94AA21B01506001F9868 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		0CA88B262189D1FE000BF96F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0CA88B272189D1FE000BF96F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		0CA88B282189D1FE000BF96F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -509,7 +503,6 @@
 		646FF2E220E1203400ADF30C /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		648D7F7B20F770A6004C6200 /* ExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeView.swift; sourceTree = "<group>"; };
 		648D7F7D20F7F26A004C6200 /* OnNewSubaddressAddedEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnNewSubaddressAddedEffect.swift; sourceTree = "<group>"; };
-		649F9AD42148097C0071AF17 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		64AA49A521456A1F002CE1FE /* MoneroNodeDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneroNodeDescription.swift; sourceTree = "<group>"; };
 		64AA49A721456DD9002CE1FE /* AnyBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyBaseViewController.swift; sourceTree = "<group>"; };
 		64AA49A921456DF6002CE1FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -558,7 +551,6 @@
 		64C28A5D21039C0500327509 /* ExchangeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResultViewController.swift; sourceTree = "<group>"; };
 		64C28A5F2104E7C000327509 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		64D42E9620FE6EFC00AF516E /* CWMonero.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CWMonero.xcodeproj; path = CWMonero/CWMonero.xcodeproj; sourceTree = "<group>"; };
-		64DACEDA214804CE0057B604 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		64DACEDD214807870057B604 /* Terms_of_Use.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Terms_of_Use.rtf; sourceTree = "<group>"; };
 		64DACEDE214807870057B604 /* NodesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NodesList.plist; sourceTree = "<group>"; };
 		64EBA5DB20F3634B00997824 /* SubaddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubaddressesView.swift; path = CakeWallet/Screens/Subaddresses/SubaddressesView.swift; sourceTree = SOURCE_ROOT; };
@@ -742,15 +734,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C9B94A721B014E8001F9868 /* Disclaimer */ = {
-			isa = PBXGroup;
-			children = (
-				0C9B94A821B014FE001F9868 /* DisclaimerView.swift */,
-				0C9B94AA21B01506001F9868 /* DisclaimerViewController.swift */,
-			);
-			path = Disclaimer;
-			sourceTree = "<group>";
-		};
 		6413ACC920E944FB004922AD /* States */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,15 +973,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64DACED9214804BF0057B604 /* Terms */ = {
-			isa = PBXGroup;
-			children = (
-				64DACEDA214804CE0057B604 /* TermsViewController.swift */,
-				649F9AD42148097C0071AF17 /* TermsView.swift */,
-			);
-			path = Terms;
-			sourceTree = "<group>";
-		};
 		64DACEDC214807580057B604 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1202,8 +1176,6 @@
 		6AAF1E9620B6028F000E4E02 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0C9B94A721B014E8001F9868 /* Disclaimer */,
-				64DACED9214804BF0057B604 /* Terms */,
 				64AA49B121456EAC002CE1FE /* PinCode */,
 				64FBC8372124726800EFC474 /* NewNode */,
 				64BEB642210CDBD600B63D67 /* ChangeLanguage */,
@@ -1991,9 +1963,7 @@
 				64BEB644210CDBF200B63D67 /* ChangeLanguageView.swift in Sources */,
 				6A72CB1120CA849300CFABC9 /* SettingsViewController.swift in Sources */,
 				64AA49D321457848002CE1FE /* BitcoinAmount.swift in Sources */,
-				649F9AD52148097C0071AF17 /* TermsView.swift in Sources */,
 				64AA49BB2145704F002CE1FE /* Button.swift in Sources */,
-				0C9B94A921B014FE001F9868 /* DisclaimerView.swift in Sources */,
 				64EBA5E920F3A6D500997824 /* SubaddressesActions.swift in Sources */,
 				64AA49CF2145726F002CE1FE /* PinCodeIndicatorsView.swift in Sources */,
 				6AAF1EB420B61606000E4E02 /* CreateWalletView.swift in Sources */,
@@ -2008,7 +1978,6 @@
 				6413ACDB20E94793004922AD /* store.swift in Sources */,
 				64AA49CB2145723A002CE1FE /* PinCodeKeyboard.swift in Sources */,
 				64AA49BD21457067002CE1FE /* StandartButton.swift in Sources */,
-				0C9B94AB21B01506001F9868 /* DisclaimerViewController.swift in Sources */,
 				64AA49D52145785C002CE1FE /* EDAmount.swift in Sources */,
 				6A2FC5A820C854F50066D365 /* Authentication.swift in Sources */,
 				64F8AB4820EC271700C59254 /* LoggerEffect.swift in Sources */,
@@ -2093,7 +2062,6 @@
 				6AAF1EA620B6047C000E4E02 /* ReceiveView.swift in Sources */,
 				6AAF1E9E20B60345000E4E02 /* CardView.swift in Sources */,
 				640A2AAA2176209E0047E60C /* Queue.swift in Sources */,
-				64DACEDB214804CE0057B604 /* TermsViewController.swift in Sources */,
 				644E32F52134511F00331241 /* ExchangeFlow.swift in Sources */,
 				64AA49AE21456E55002CE1FE /* UIViewController+UIAlertController.swift in Sources */,
 				648D7F7C20F770A6004C6200 /* ExchangeView.swift in Sources */,
