@@ -24,8 +24,10 @@ final class WelcomeViewController: BaseViewController<WelcomeView> {
         if let appName = Bundle.main.displayName {
             
             // FIXME: Unnamed constant
+            let testnetEnabled = ProcessInfo.processInfo.environment["TESTNET"] != nil
+            let testnetString = testnetEnabled ? " - Testnet" : ""
             
-            contentView.welcomeLabel.text = String(format: NSLocalizedString("welcome", comment: ""), appName)
+            contentView.welcomeLabel.text = String(format: NSLocalizedString("welcome", comment: ""), "\(appName)\(testnetString)")
         }
         
         // FIXME: Unnamed constant
