@@ -44,12 +44,12 @@ final class Configurations {
         }
     }
     static var defaultMoneroNode: MoneroNodeDescription {
-        if (ProcessInfo.processInfo.environment["TESTNET"] != nil) {
+        #if USE_TESTNET
             NSLog("USING TESTNET NODE")
             return MoneroNodeDescription(uri: "lokitestnet.com:38157")
-        } else {
-            return MoneroNodeDescription(uri: "doopool.xyz:20020")
-        }
+        #endif
+      
+        return MoneroNodeDescription(uri: "doopool.xyz:20020")
     }
 
     static let preDefaultNodeUri = "node.loki-pool.com:18081"

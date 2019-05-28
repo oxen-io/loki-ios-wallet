@@ -136,10 +136,10 @@ public:
     if (self) {
         Monero::Utils::onStartup();
         Monero::NetworkType nettype = Monero::NetworkType::MAINNET;
-        if ([[[NSProcessInfo processInfo] environment] objectForKey:@"TESTNET"]) {
-            NSLog(@"TESTNET ENABLED");
-            nettype = Monero::NetworkType::TESTNET;
-        }
+#ifdef USE_TESTNET
+        NSLog(@"TESTNET ENABLED");
+        nettype = Monero::NetworkType::TESTNET;
+#endif
         
         Monero::WalletImpl *wallet = new Monero::WalletImpl(nettype);
         MonerWalletListener *listener = new MonerWalletListener();

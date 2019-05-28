@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CA1D653A209A3EBB00A1FDDB"
-               BuildableName = "CakeWallet.app"
+               BuildableName = "LokiWallet.app"
                BlueprintName = "CakeWallet"
                ReferencedContainer = "container:CakeWallet.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA1D653A209A3EBB00A1FDDB"
-            BuildableName = "CakeWallet.app"
+            BuildableName = "LokiWallet.app"
             BlueprintName = "CakeWallet"
             ReferencedContainer = "container:CakeWallet.xcodeproj">
          </BuildableReference>
@@ -56,18 +56,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA1D653A209A3EBB00A1FDDB"
-            BuildableName = "CakeWallet.app"
+            BuildableName = "LokiWallet.app"
             BlueprintName = "CakeWallet"
             ReferencedContainer = "container:CakeWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "TESTNET"
-            value = "1"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -82,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA1D653A209A3EBB00A1FDDB"
-            BuildableName = "CakeWallet.app"
+            BuildableName = "LokiWallet.app"
             BlueprintName = "CakeWallet"
             ReferencedContainer = "container:CakeWallet.xcodeproj">
          </BuildableReference>
@@ -93,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "LokiWallet"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
