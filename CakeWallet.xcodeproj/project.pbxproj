@@ -18,6 +18,20 @@
 		243687E2224DAA6E008A8CE4 /* libepee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DE224DAA6D008A8CE4 /* libepee.a */; };
 		243687E3224DAA6E008A8CE4 /* libeasylogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DF224DAA6D008A8CE4 /* libeasylogging.a */; };
 		243687E4224DAA6E008A8CE4 /* libunbound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E0224DAA6D008A8CE4 /* libunbound.a */; };
+		2484D7D2229E424E0030B2FB /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C4229E424D0030B2FB /* Subscription.swift */; };
+		2484D7D3229E424E0030B2FB /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C5229E424D0030B2FB /* StateType.swift */; };
+		2484D7D4229E424E0030B2FB /* Stringify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C6229E424D0030B2FB /* Stringify.swift */; };
+		2484D7D5229E424E0030B2FB /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C7229E424D0030B2FB /* StoreType.swift */; };
+		2484D7D6229E424E0030B2FB /* SubscriptionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C8229E424D0030B2FB /* SubscriptionWrapper.swift */; };
+		2484D7D7229E424E0030B2FB /* AnyStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C9229E424D0030B2FB /* AnyStateType.swift */; };
+		2484D7D8229E424E0030B2FB /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CA229E424D0030B2FB /* StoreSubscriber.swift */; };
+		2484D7D9229E424E0030B2FB /* AnyEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CB229E424D0030B2FB /* AnyEffect.swift */; };
+		2484D7DA229E424E0030B2FB /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CC229E424D0030B2FB /* Effect.swift */; };
+		2484D7DB229E424E0030B2FB /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CD229E424D0030B2FB /* AnyAction.swift */; };
+		2484D7DC229E424E0030B2FB /* registerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CE229E424D0030B2FB /* registerHandler.swift */; };
+		2484D7DD229E424E0030B2FB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CF229E424D0030B2FB /* Store.swift */; };
+		2484D7DE229E424E0030B2FB /* Store+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D0229E424E0030B2FB /* Store+extensions.swift */; };
+		2484D7DF229E424E0030B2FB /* AnyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D1229E424E0030B2FB /* AnyStore.swift */; };
 		24D9E0C2224DBBC0004B2041 /* libwallet_merged.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E1224DAA6D008A8CE4 /* libwallet_merged.a */; };
 		5AEB7819EE21EEA84C2BB1FE /* Pods_CakeWalletLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEB01654D6700433C155EAA /* Pods_CakeWalletLib.framework */; };
 		640A2AA021761C640047E60C /* CWAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640A2A9F21761C640047E60C /* CWAlertViewController.swift */; };
@@ -61,19 +75,6 @@
 		644A99D720E172FA0035429B /* CakeWalletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 644A99D520E172FA0035429B /* CakeWalletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644A99DA20E172FA0035429B /* CakeWalletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644A99D320E172FA0035429B /* CakeWalletCore.framework */; };
 		644A99DB20E172FA0035429B /* CakeWalletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 644A99D320E172FA0035429B /* CakeWalletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		644A99E920E173930035429B /* Store+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E020E173900035429B /* Store+extensions.swift */; };
-		644A99EA20E173930035429B /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E120E173900035429B /* StateType.swift */; };
-		644A99EB20E173930035429B /* Stringify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E220E173900035429B /* Stringify.swift */; };
-		644A99EC20E173930035429B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E320E173910035429B /* Store.swift */; };
-		644A99ED20E173930035429B /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E420E173910035429B /* Subscription.swift */; };
-		644A99EE20E173930035429B /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E520E173910035429B /* StoreSubscriber.swift */; };
-		644A99EF20E173930035429B /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E620E173910035429B /* StoreType.swift */; };
-		644A99F020E173930035429B /* AnyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99E720E173910035429B /* AnyStore.swift */; };
-		644A99F320E173B40035429B /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99F220E173B40035429B /* Effect.swift */; };
-		644A99F520E173C40035429B /* AnyEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99F420E173C40035429B /* AnyEffect.swift */; };
-		644A99F720E173E60035429B /* AnyStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99F620E173E60035429B /* AnyStateType.swift */; };
-		644A99F920E173F20035429B /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99F820E173F20035429B /* AnyAction.swift */; };
-		644A99FB20E175F20035429B /* SubscriptionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A99FA20E175F20035429B /* SubscriptionWrapper.swift */; };
 		644E32EF21344CE300331241 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644E32EE21344CE300331241 /* SettingsFlow.swift */; };
 		644E32F52134511F00331241 /* ExchangeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644E32F42134511F00331241 /* ExchangeFlow.swift */; };
 		644E32F7213453D700331241 /* NodesFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644E32F6213453D700331241 /* NodesFlow.swift */; };
@@ -172,7 +173,6 @@
 		64EBA5E920F3A6D500997824 /* SubaddressesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBA5E820F3A6D500997824 /* SubaddressesActions.swift */; };
 		64EBA5EB20F3A77E00997824 /* SubaddressesHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBA5EA20F3A77E00997824 /* SubaddressesHandlers.swift */; };
 		64EBA5ED20F3BCA000997824 /* ShortReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBA5EC20F3BCA000997824 /* ShortReceiveViewController.swift */; };
-		64F02F5020E8D0F700527F08 /* registerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F02F4F20E8D0F700527F08 /* registerHandler.swift */; };
 		64F7F3FD214452B1006BD195 /* MoneroPendingTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7F3FC214452B1006BD195 /* MoneroPendingTransaction.swift */; };
 		64F7F3FF21445389006BD195 /* MoneroTransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7F3FE21445389006BD195 /* MoneroTransactionHistory.swift */; };
 		64F7F401214453AC006BD195 /* TransactionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F7F400214453AC006BD195 /* TransactionError.swift */; };
@@ -363,6 +363,20 @@
 		243687E0224DAA6D008A8CE4 /* libunbound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libunbound.a; path = "Libraries/loki/lib-ios/libunbound.a"; sourceTree = "<group>"; };
 		243687E1224DAA6D008A8CE4 /* libwallet_merged.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwallet_merged.a; path = "Libraries/loki/lib-ios/libwallet_merged.a"; sourceTree = "<group>"; };
 		24408DA6A422C16B8E196C79 /* Pods-CakeWalletLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CakeWalletLib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CakeWalletLib/Pods-CakeWalletLib.debug.xcconfig"; sourceTree = "<group>"; };
+		2484D7C4229E424D0030B2FB /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		2484D7C5229E424D0030B2FB /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
+		2484D7C6229E424D0030B2FB /* Stringify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stringify.swift; sourceTree = "<group>"; };
+		2484D7C7229E424D0030B2FB /* StoreType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
+		2484D7C8229E424D0030B2FB /* SubscriptionWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionWrapper.swift; sourceTree = "<group>"; };
+		2484D7C9229E424D0030B2FB /* AnyStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStateType.swift; sourceTree = "<group>"; };
+		2484D7CA229E424D0030B2FB /* StoreSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreSubscriber.swift; sourceTree = "<group>"; };
+		2484D7CB229E424D0030B2FB /* AnyEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEffect.swift; sourceTree = "<group>"; };
+		2484D7CC229E424D0030B2FB /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		2484D7CD229E424D0030B2FB /* AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
+		2484D7CE229E424D0030B2FB /* registerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registerHandler.swift; sourceTree = "<group>"; };
+		2484D7CF229E424D0030B2FB /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2484D7D0229E424E0030B2FB /* Store+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+extensions.swift"; sourceTree = "<group>"; };
+		2484D7D1229E424E0030B2FB /* AnyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStore.swift; sourceTree = "<group>"; };
 		4AEB01654D6700433C155EAA /* Pods_CakeWalletLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CakeWalletLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56687B9E5B33C419BDE58518 /* Pods-CakeWalletLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CakeWalletLib.release.xcconfig"; path = "Pods/Target Support Files/Pods-CakeWalletLib/Pods-CakeWalletLib.release.xcconfig"; sourceTree = "<group>"; };
 		5C3607B6EF99CE93E0909BD8 /* Pods_CakeWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CakeWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -433,19 +447,6 @@
 		644A99D320E172FA0035429B /* CakeWalletCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CakeWalletCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		644A99D520E172FA0035429B /* CakeWalletCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CakeWalletCore.h; sourceTree = "<group>"; };
 		644A99D620E172FA0035429B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		644A99E020E173900035429B /* Store+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+extensions.swift"; sourceTree = "<group>"; };
-		644A99E120E173900035429B /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
-		644A99E220E173900035429B /* Stringify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stringify.swift; sourceTree = "<group>"; };
-		644A99E320E173910035429B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		644A99E420E173910035429B /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
-		644A99E520E173910035429B /* StoreSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreSubscriber.swift; sourceTree = "<group>"; };
-		644A99E620E173910035429B /* StoreType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
-		644A99E720E173910035429B /* AnyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStore.swift; sourceTree = "<group>"; };
-		644A99F220E173B40035429B /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
-		644A99F420E173C40035429B /* AnyEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEffect.swift; sourceTree = "<group>"; };
-		644A99F620E173E60035429B /* AnyStateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyStateType.swift; sourceTree = "<group>"; };
-		644A99F820E173F20035429B /* AnyAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
-		644A99FA20E175F20035429B /* SubscriptionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionWrapper.swift; sourceTree = "<group>"; };
 		644E32EE21344CE300331241 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
 		644E32F42134511F00331241 /* ExchangeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeFlow.swift; sourceTree = "<group>"; };
 		644E32F6213453D700331241 /* NodesFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesFlow.swift; sourceTree = "<group>"; };
@@ -559,7 +560,6 @@
 		64EBA5E820F3A6D500997824 /* SubaddressesActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubaddressesActions.swift; sourceTree = "<group>"; };
 		64EBA5EA20F3A77E00997824 /* SubaddressesHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubaddressesHandlers.swift; sourceTree = "<group>"; };
 		64EBA5EC20F3BCA000997824 /* ShortReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortReceiveViewController.swift; sourceTree = "<group>"; };
-		64F02F4F20E8D0F700527F08 /* registerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerHandler.swift; sourceTree = "<group>"; };
 		64F7F3F921444EED006BD195 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F7F3FC214452B1006BD195 /* MoneroPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneroPendingTransaction.swift; sourceTree = "<group>"; };
 		64F7F3FE21445389006BD195 /* MoneroTransactionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneroTransactionHistory.swift; sourceTree = "<group>"; };
@@ -764,22 +764,22 @@
 		644A99D420E172FA0035429B /* CakeWalletCore */ = {
 			isa = PBXGroup;
 			children = (
-				644A99F220E173B40035429B /* Effect.swift */,
-				644A99E720E173910035429B /* AnyStore.swift */,
-				644A99E320E173910035429B /* Store.swift */,
-				644A99E120E173900035429B /* StateType.swift */,
-				644A99E620E173910035429B /* StoreType.swift */,
-				644A99E020E173900035429B /* Store+extensions.swift */,
-				644A99E520E173910035429B /* StoreSubscriber.swift */,
-				644A99E220E173900035429B /* Stringify.swift */,
-				644A99E420E173910035429B /* Subscription.swift */,
+				2484D7CD229E424D0030B2FB /* AnyAction.swift */,
+				2484D7CB229E424D0030B2FB /* AnyEffect.swift */,
+				2484D7C9229E424D0030B2FB /* AnyStateType.swift */,
+				2484D7D1229E424E0030B2FB /* AnyStore.swift */,
 				644A99D520E172FA0035429B /* CakeWalletCore.h */,
+				2484D7CC229E424D0030B2FB /* Effect.swift */,
 				644A99D620E172FA0035429B /* Info.plist */,
-				644A99F420E173C40035429B /* AnyEffect.swift */,
-				644A99F620E173E60035429B /* AnyStateType.swift */,
-				644A99F820E173F20035429B /* AnyAction.swift */,
-				644A99FA20E175F20035429B /* SubscriptionWrapper.swift */,
-				64F02F4F20E8D0F700527F08 /* registerHandler.swift */,
+				2484D7CE229E424D0030B2FB /* registerHandler.swift */,
+				2484D7C5229E424D0030B2FB /* StateType.swift */,
+				2484D7CF229E424D0030B2FB /* Store.swift */,
+				2484D7D0229E424E0030B2FB /* Store+extensions.swift */,
+				2484D7CA229E424D0030B2FB /* StoreSubscriber.swift */,
+				2484D7C7229E424D0030B2FB /* StoreType.swift */,
+				2484D7C6229E424D0030B2FB /* Stringify.swift */,
+				2484D7C4229E424D0030B2FB /* Subscription.swift */,
+				2484D7C8229E424D0030B2FB /* SubscriptionWrapper.swift */,
 			);
 			path = CakeWalletCore;
 			sourceTree = "<group>";
@@ -1588,7 +1588,7 @@
 				TargetAttributes = {
 					644A99D220E172FA0035429B = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 					};
 					645F88EF2144202800B085AC = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1834,20 +1834,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				644A99F320E173B40035429B /* Effect.swift in Sources */,
-				644A99EF20E173930035429B /* StoreType.swift in Sources */,
-				644A99E920E173930035429B /* Store+extensions.swift in Sources */,
-				644A99F920E173F20035429B /* AnyAction.swift in Sources */,
-				64F02F5020E8D0F700527F08 /* registerHandler.swift in Sources */,
-				644A99F720E173E60035429B /* AnyStateType.swift in Sources */,
-				644A99EB20E173930035429B /* Stringify.swift in Sources */,
-				644A99F520E173C40035429B /* AnyEffect.swift in Sources */,
-				644A99EA20E173930035429B /* StateType.swift in Sources */,
-				644A99EE20E173930035429B /* StoreSubscriber.swift in Sources */,
-				644A99EC20E173930035429B /* Store.swift in Sources */,
-				644A99F020E173930035429B /* AnyStore.swift in Sources */,
-				644A99FB20E175F20035429B /* SubscriptionWrapper.swift in Sources */,
-				644A99ED20E173930035429B /* Subscription.swift in Sources */,
+				2484D7D6229E424E0030B2FB /* SubscriptionWrapper.swift in Sources */,
+				2484D7D2229E424E0030B2FB /* Subscription.swift in Sources */,
+				2484D7DF229E424E0030B2FB /* AnyStore.swift in Sources */,
+				2484D7DB229E424E0030B2FB /* AnyAction.swift in Sources */,
+				2484D7DD229E424E0030B2FB /* Store.swift in Sources */,
+				2484D7DE229E424E0030B2FB /* Store+extensions.swift in Sources */,
+				2484D7D8229E424E0030B2FB /* StoreSubscriber.swift in Sources */,
+				2484D7DA229E424E0030B2FB /* Effect.swift in Sources */,
+				2484D7D5229E424E0030B2FB /* StoreType.swift in Sources */,
+				2484D7D4229E424E0030B2FB /* Stringify.swift in Sources */,
+				2484D7DC229E424E0030B2FB /* registerHandler.swift in Sources */,
+				2484D7D7229E424E0030B2FB /* AnyStateType.swift in Sources */,
+				2484D7D3229E424E0030B2FB /* StateType.swift in Sources */,
+				2484D7D9229E424E0030B2FB /* AnyEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2195,10 +2195,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2228,7 +2229,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2287,7 +2288,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2340,7 +2340,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(SWIFT_MODULE_NAME)/CWMonero-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2606,7 +2605,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -2650,7 +2648,6 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
