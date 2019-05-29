@@ -295,7 +295,7 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     }
     
     private func commit(pendingTransaction: PendingTransaction) {
-        showSpinner(withTitle: NSLocalizedString("creating_transaction", comment: "")) { [weak self] alert in
+        showSpinner(withTitle: NSLocalizedString("sending_transaction", comment: "")) { [weak self] alert in
             self?.store.dispatch(
                 WalletActions.commit(
                     transaction: pendingTransaction,

@@ -26,6 +26,7 @@ final class RestoreFromSeedView: BaseScrollFlexViewWithBottomSection {
         seedTextField.autocapitalizationType  = .none
         seedTextField.delegate = self
         seedTextField.isScrollEnabled = false
+        seedTextField.backgroundColor = .clear
     }
     
     override func configureConstraints() {

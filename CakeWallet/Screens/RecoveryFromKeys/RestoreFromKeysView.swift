@@ -93,6 +93,10 @@ final class RestoreFromKeysView: BaseScrollFlexViewWithBottomSection {
         viewKeyTextField.delegate = self
         spendKeyTextField.isScrollEnabled = false
         spendKeyTextField.delegate = self
+        
+        walletNameTextField.backgroundColor = .clear
+        viewKeyTextField.backgroundColor = .clear
+        spendKeyTextField.backgroundColor = .clear
     }
     
     override func configureConstraints() {

@@ -104,6 +104,7 @@
 "currently the fee is set at" = "Currently the fee is set at";
 "priority" = "priority";
 "change_transaction_priority" = "Transaction priority can be adjusted in the settings";
+"sending_transaction" = "Sending transaction";
 
 
 // Receive
