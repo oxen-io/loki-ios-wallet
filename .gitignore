@@ -35,7 +35,6 @@ Carthage/
 .vscode/*
 
 Libraries/*
-!Libraries/build_ios.sh
-!Libraries/install.sh
+!Libraries/*.sh
 
 lmdb/Sources/

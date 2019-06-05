@@ -25,7 +25,16 @@ cd ..
 pod install
 ```
 
-### Building problems
+### Shared library building problems
+
+You may get an error such as:
+```
+ld: symbol(s) not found for architecture armv7
+```
+
+If you get this issue then make sure that boost has been correctly built. You can check this by seeing if it exists at `Libraries/boost/builds/libs`. If the folder doesn't exist then run `./build_boost.sh` and check to see if any errors occur there.
+
+### XCode Building problems
 If you're having problems building with Xcode 10 or above then change to the `Legacy Build System`
 
 # Pre-requisites
