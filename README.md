@@ -16,9 +16,7 @@ brew install zeromq
 4. Build the loki iOS libraries.
 ```sh
 cd Libraries/
-sudo xcode-select -s /Applications/Xcode10.app/Contents/Developer/
 ./install.sh
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/
 ./build_ios.sh
 cd ..
 ```
