@@ -40,9 +40,13 @@ private func getSavedNode() -> NodeDescription? {
 }
 
 private func getSavedIsAutoSwitchNodeOn() -> Bool {
+    
+    return false
+    /* Loki - Disable auto switching
     return UserDefaults.standard.value(forKey: Configurations.DefaultsKeys.autoSwitchNode.string()) != nil
         ? UserDefaults.standard.bool(forKey: Configurations.DefaultsKeys.autoSwitchNode)
         : true
+     */
 }
 
 private func getSavedIsBiometricAuthenticationAllowed() -> Bool {

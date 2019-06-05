@@ -37,7 +37,8 @@ final class NodesView: BaseFlexView {
         }
         
         rootFlexContainer.flex.define { flex in
-            flex.addItem(autoNodeSwitchContainer).width(100%)
+            // Loki - Disable auto node switching
+            // flex.addItem(autoNodeSwitchContainer).width(100%)
             flex.addItem(table).width(100%)
         }
     }

@@ -49,7 +49,7 @@ final class Configurations {
             return MoneroNodeDescription(uri: "lokitestnet.com:38157")
         #endif
       
-        return MoneroNodeDescription(uri: "doopool.xyz:20020")
+        return MoneroNodeDescription(uri: "imaginary.stream:22023")
     }
 
     static let preDefaultNodeUri = "node.loki-pool.com:18081"

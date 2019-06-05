@@ -34,7 +34,6 @@ public class MoneroNodeDescription: NSObject, NodeDescription {
         let urlString = String(format: "http://%@/json_rpc", uri).addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
         let requestBody: [String: Any] = [
             "jsonrpc": "2.0",
-            "id": "0",
             "method": "get_info"
         ]
 //        let headers = [

@@ -62,9 +62,9 @@ final class NodesViewController: BaseViewController<NodesView>, UITableViewDeleg
     
     func onStateChange(_ state: ApplicationState) {
         updateAutoSwitch(isOn: state.settingsState.isAutoSwitchNodeOn)
-//        if let node = state.settingsState.node {
-//            updateCurrent(node: node)
-//        }
+        if let node = state.settingsState.node {
+            updateCurrent(node: node)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -118,22 +118,22 @@ final class NodesViewController: BaseViewController<NodesView>, UITableViewDeleg
     }
     
     private func updateNodes() {
-        //fixme
         let dispatchGroup = DispatchGroup()
         
         self.nodes = NodesList.shared.values // fixme
             .map { NodeCellItem(node: $0, isCurrent: self.store.state.settingsState.node!.compare(with: $0)) }
         
-        nodes.forEach { nodeCell in
+        for i in 0..<nodes.count {
             dispatchGroup.enter()
-            nodeCell.node.isAble({ isAble in
-                nodeCell.isAble = isAble
+            let nodeCell = nodes[i]
+             nodeCell.node.isAble { isAble in
+                self.nodes[i].isAble = isAble
                 dispatchGroup.leave()
-            })
+            }
         }
-
+        
         dispatchGroup.notify(queue: .main) {
-            print("Updated")
+            print("Updated Nodes")
             self.contentView.table.reloadData()
         }
     }
@@ -145,7 +145,7 @@ final class NodesViewController: BaseViewController<NodesView>, UITableViewDeleg
     }
     
     private func updateCurrent(node: NodeDescription) {
-        nodes = self.nodes.map { NodeCellItem(node: $0.node, isCurrent: $0.node.compare(with: node)) }
+        nodes = self.nodes.map { NodeCellItem(node: $0.node, isCurrent: $0.node.compare(with: node), isAble: $0.isAble) }
         contentView.table.reloadData()
     }
     

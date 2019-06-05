@@ -3,8 +3,6 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>isDefault</key>
-		<true/>
 		<key>uri</key>
 		<string>doopool.xyz:22020</string>
 	</dict>
@@ -17,6 +15,8 @@
 		<string>node.loki-pool.com:18081</string>
 	</dict>
 	<dict>
+		<key>isDefault</key>
+		<true/>
 		<key>uri</key>
 		<string>imaginary.stream:22023</string>
 	</dict>
