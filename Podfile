@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-target 'CakeWallet' do
+target 'LokiWallet' do
     pod 'FlexLayout'
     pod 'PinLayout'
     pod 'SkyFloatingLabelTextField', '~> 3.01'
@@ -16,12 +16,12 @@ target 'CakeWallet' do
     pod 'Starscream', '~> 3.0.2'
 end
 
-target 'CWMonero' do
+target 'LWLoki' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
 end
 
-target 'CakeWalletLib' do
+target 'LokiWalletLib' do
     pod 'KeychainAccess'
 end
 
