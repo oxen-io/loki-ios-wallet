@@ -340,7 +340,7 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
             changePinCellItem,
             changeLanguage,
             biometricCellItem,
-            rememberPasswordCellItem,
+//            rememberPasswordCellItem, // DISABLED because the functionality hasn't been implemented
 //            toggleNightModeCellItem
         ]
         sections[.advanced] = [
