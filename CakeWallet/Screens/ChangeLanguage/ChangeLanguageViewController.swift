@@ -55,7 +55,7 @@ public enum Languages: String, Formatted {
         case .pt:
             return "Português (Portuguese)"
         case .pl:
-            return "Polskie (Polish)"
+            return "Polski (Polish)"
         case .nl:
             return "Nederlands (Dutch)"
         }
@@ -63,7 +63,7 @@ public enum Languages: String, Formatted {
 }
 
 extension Languages: CellItem {
-    func setup(cell: LangTableCcell) {
+    func setup(cell: LangTableCell) {
         cell.configure(lang: self, isCurrent: self == Languages.current)
     }
 }

@@ -64,7 +64,7 @@
 
 // Wallet
 
-"available_balance" = "Dostępne Saldo";
+"available_balance" = "Dostępne saldo";
 "reconnection" = "Ponowne Połączenie";
 "reconnect" = "Połącz Ponownie";
 "reconnect_alert_text" = "Na pewno chcesz żeby połączyć ponownie ?";

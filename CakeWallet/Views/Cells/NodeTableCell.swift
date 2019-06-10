@@ -49,7 +49,7 @@ final class NodeTableCell: FlexCell {
     }
 }
 
-final class LangTableCcell: FlexCell {
+final class LangTableCell: FlexCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -86,6 +86,7 @@ final class LangTableCcell: FlexCell {
     
     func configure(lang: Languages, isCurrent: Bool) {
         textLabel?.text = lang.formatted()
+        textLabel?.flex.markDirty()
         contentView.backgroundColor = isCurrent ? .lokiBlack40 : Theme.current.tableCell.background
         textLabel?.textColor = Theme.current.tableCell.text
         contentView.flex.layout()
