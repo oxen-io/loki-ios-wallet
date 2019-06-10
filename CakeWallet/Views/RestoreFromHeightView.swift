@@ -164,7 +164,7 @@ final class RestoreFromHeightView: BaseFlexView {
         var height: UInt64 = 0
         if
             let heightStr = restoreHeightTextField.text,
-            let _height = UInt64(heightStr) {
+            let _height = UInt64(heightStr.replacingOccurrences(of: ",", with: "")) {
             height = _height
         }
         return height
