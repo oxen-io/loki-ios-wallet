@@ -2,6 +2,9 @@ import UIKit
 
 extension CALayer {
     func applySketchShadow(color: UIColor = .black, alpha: Float = 0.5, x: CGFloat = 0, y: CGFloat = 2, blur: CGFloat = 4, spread: CGFloat = 0) {
+        // Loki - We don't want any shadows
+        removeSketchShadow()
+        /*
         shadowColor = color.cgColor
         shadowOpacity = alpha
         shadowOffset = CGSize(width: x, height: y)
@@ -13,6 +16,7 @@ extension CALayer {
             let rect = bounds.insetBy(dx: dx, dy: dx)
             shadowPath = UIBezierPath(rect: rect).cgPath
         }
+         */
     }
     
     func removeSketchShadow() {

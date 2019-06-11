@@ -23,6 +23,7 @@ final class RestoreViewController: BaseViewController<RecoverView> {
         case .bitcoin:
             break
         }
+        contentView.cryptoIconImageView.contentMode = .scaleAspectFit
     }
     
     @objc
