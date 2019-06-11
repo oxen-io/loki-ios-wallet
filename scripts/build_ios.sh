@@ -1,15 +1,18 @@
 #!/bin/bash
 
 SOURCE_DIR=`pwd`
+LIBRARY_DIR="$SOURCE_DIR/Libraries"
 
-LOKI_DIR_PATH="$SOURCE_DIR/loki"
-BOOST_DIR_PATH="$SOURCE_DIR/boost"
-OPEN_SSL_DIR_PATH="$SOURCE_DIR/openssl"
-SODIUM_PATH="$SOURCE_DIR/sodium"
+LOKI_DIR_PATH="$LIBRARY_DIR/loki"
+BOOST_DIR_PATH="$LIBRARY_DIR/boost"
+OPEN_SSL_DIR_PATH="$LIBRARY_DIR/openssl"
+SODIUM_PATH="$LIBRARY_DIR/sodium"
 
 USR_INCLUDES="/usr/local/include"
 
 echo "============================ Building Loki iOS ============================"
+
+cd $LIBRARY_DIR
 
 echo "Export Boost vars"
 BOOST_LIBRARYDIR="$BOOST_DIR_PATH/build/ios/prefix/lib"
@@ -69,3 +72,5 @@ lipo -create lib-armv7/libunbound.a lib-x86_64/libunbound.a lib-armv8-a/libunbou
 lipo -create lib-armv7/libepee.a lib-x86_64/libepee.a lib-armv8-a/libepee.a -output lib-ios/libepee.a
 lipo -create lib-armv7/libeasylogging.a lib-x86_64/libeasylogging.a lib-armv8-a/libeasylogging.a -output lib-ios/libeasylogging.a
 popd
+
+cd ..
