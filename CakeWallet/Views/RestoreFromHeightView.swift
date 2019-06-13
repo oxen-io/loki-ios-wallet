@@ -72,10 +72,11 @@ extension Date {
 
 
 func getHeight(of date: Date, calendar: Calendar = Calendar.current) -> UInt64 {
+    // The date when loki was forked from monero
     var minDateComponents = DateComponents()
-    minDateComponents.year = 2014
+    minDateComponents.year = 2018
     minDateComponents.month = 5
-    minDateComponents.day = 1
+    minDateComponents.day = 3
     
     guard
         let minDate = calendar.date(from: minDateComponents),
