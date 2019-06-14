@@ -2,6 +2,15 @@ import UIKit
 import FlexLayout
 import SwiftSoup
 
+// The date when loki was forked from monero
+private let minDate: Date? = {
+    var minDateComponents = DateComponents()
+    minDateComponents.year = 2018
+    minDateComponents.month = 5
+    minDateComponents.day = 3
+    return Calendar.current.date(from: minDateComponents)
+}()
+
 private let dates: [Date: UInt64] = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM"
@@ -9,6 +18,7 @@ private let dates: [Date: UInt64] = {
     // Loki: These are just estimated block heights, not actual ones
     // The estimates here are the block heights at the start of each month
     return [
+        formatter.date(from: "2018-05")!: 0,
         formatter.date(from: "2018-06")!: 21166,
         formatter.date(from: "2018-07")!: 42671,
         formatter.date(from: "2018-08")!: 64925,
@@ -37,14 +47,8 @@ extension Date {
 
 
 func getHeight(of date: Date, calendar: Calendar = Calendar.current) -> UInt64 {
-    // The date when loki was forked from monero
-    var minDateComponents = DateComponents()
-    minDateComponents.year = 2018
-    minDateComponents.month = 5
-    minDateComponents.day = 3
-    
     guard
-        let minDate = calendar.date(from: minDateComponents),
+        let minDate = minDate,
         minDate < date else { return 0 }
     var startDate = date.startOfMonth()
     let endDate = calendar.date(byAdding: .month, value: 1, to: startDate)!
@@ -63,7 +67,7 @@ func getHeight(of date: Date, calendar: Calendar = Calendar.current) -> UInt64 {
         startDate = lastMonth
     }
     
-    if startHeight == 0 {
+    if (startHeight == 0) {
         startHeight = dates[startDate]!
     }
     
@@ -151,6 +155,7 @@ final class RestoreFromHeightView: BaseFlexView {
         datePicker.datePickerMode = .date
         datePicker.locale = Locale.current
         dateTextField.inputView = datePicker
+        datePicker.minimumDate = minDate
         datePicker.maximumDate = Date()
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         datePicker.addTarget(self, action: #selector(onDateChange(_:)), for: .valueChanged)
