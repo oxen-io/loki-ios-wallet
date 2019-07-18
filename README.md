@@ -48,6 +48,9 @@ src/crypto/cn_heavy_hash.hpp:60
 #include <sys/auxv.h>
 ```
 
+src/crypto/rx-slow-hash.cpp
+- Comment out all function logic so no randomx functions are being called.
+
 CMakeLists_IOS.txt:28
 ```diff
 set (IOS True)
