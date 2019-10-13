@@ -38,51 +38,7 @@ If you're having problems building with Xcode 10 or above then change to the `Le
 # TEMP FIX TO BUILD LOKI SHARED LIBRARIES
 
 Currently you will fail to build the loki shared libraries because of some errors.
-Here are fixes that you should apply:
-
-src/crypto/cn_heavy_hash.hpp:60
-```diff
-- #if defined(__aarch64__)
-+ #if(0)
-#pragma GCC target ("+crypto")
-#include <sys/auxv.h>
-```
-
-src/crypto/rx-slow-hash.cpp
-- Comment out all function logic so no randomx functions are being called.
-
-CMakeLists_IOS.txt:28
-```diff
-set (IOS True)
-+ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D IOS")
-```
-
-CMakeLists.txt:555
-```diff
-  elseif(IOS AND ARCH STREQUAL "arm64")
-    message(STATUS "IOS: Changing arch from arm64 to armv8")
-    set(ARCH_FLAG "-march=armv8")
-+ elseif(IOS AND ARCH STREQUAL "x86_64")
-+   message(STATUS "IOS: Changing arch from x86_64 to x86-64")
-+   set(ARCH_FLAG "-march=x86-64")
-  else()
-    set(ARCH_FLAG "-march=${ARCH}")
-    if(ARCH STREQUAL "native")
-
-```
-
-src/wallet/CMakeLists.txt:77
-```diff
-- if (NOT LOKI_DAEMON_AND_WALLET_ONLY)
-+ if (0)
-```
-
-cmake/CheckTrezor.cmake:32
-```diff
-# Use Trezor master switch
-+ if (USE_DEVICE_TREZOR)
-- if (0)
-```
+Apply the changes from `loki-ios-patch.diff` to the loki folder located in `Libraries/`
 
 # Testnet
 

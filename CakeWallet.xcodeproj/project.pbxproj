@@ -2584,6 +2584,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
+				MARKETING_VERSION = 1.1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lc++",
@@ -2628,6 +2629,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
+				MARKETING_VERSION = 1.1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lc++",
