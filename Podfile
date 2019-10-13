@@ -31,4 +31,13 @@ post_install do |installer|
             config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
         end
     end
+    
+    # Xcode11 Fix
+    installer.pods_project.targets.each do |target|
+      next unless target.name == 'SwiftSoup'
+      target.build_configurations.each do |config|
+        next unless config.name.start_with?('Release')
+        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
+      end
+    end
 end

@@ -6,19 +6,44 @@ echo "Installing missing headers"
 # vmmeter
 mkdir -p /usr/local/include/sys
 
-if [ ! -f /usr/local/include/sys/vmmeter.h ]; then
-ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/vmmeter.h /usr/local/include/sys/vmmeter.h
-fi
+vmmeter_locations=(
+    "/usr/local/include/sys/vmmeter.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/sys/vmmeter.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/sys/vmmeter.h"
+)
+
+for path in "${vmmeter_locations[@]}"; do
+    if [ ! -f $path ]; then
+        ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/vmmeter.h $path
+    fi
+done
 
 # netinet
 mkdir -p /usr/local/include/netinet
-if [ ! -f /usr/local/include/netinet/ip_var.h ]; then
-ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/ip_var.h /usr/local/include/netinet/ip_var.h
-fi
 
-if [ ! -f /usr/local/include/netinet/udp_var.h ]; then
-ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/udp_var.h /usr/local/include/netinet/udp_var.h
-fi
+ip_var_locations=(
+    "/usr/local/include/netinet/ip_var.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/netinet/ip_var.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/netinet/ip_var.h"
+)
+
+for path in "${ip_var_locations[@]}"; do
+    if [ ! -f $path ]; then
+        ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/ip_var.h $path
+    fi
+done
+
+udp_var_locations=(
+    "/usr/local/include/netinet/udp_var.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/netinet/udp_var.h"
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/netinet/udp_var.h"
+)
+
+for path in "${udp_var_locations[@]}"; do
+    if [ ! -f $path ]; then
+        ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/udp_var.h $path
+    fi
+done
 
 # IOKit
 mkdir -p /usr/local/include/IOKit
