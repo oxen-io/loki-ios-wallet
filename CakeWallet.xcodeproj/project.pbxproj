@@ -3,20 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0C337244217D0F2B000D259D /* migrateKeychainAccessibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C337243217D0F2B000D259D /* migrateKeychainAccessibilities.swift */; };
 		24166629225C5C5F0095C776 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24166628225C5C5F0095C776 /* UIColor+RGB.swift */; };
-		243687D1224DA8AF008A8CE4 /* libboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D0224DA8AF008A8CE4 /* libboost.a */; };
-		243687D4224DA8C3008A8CE4 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D2224DA8C3008A8CE4 /* libssl.a */; };
-		243687D5224DA8C3008A8CE4 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D3224DA8C3008A8CE4 /* libcrypto.a */; };
-		243687D7224DA8E6008A8CE4 /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D6224DA8E6008A8CE4 /* libsodium.a */; };
-		243687DD224DAA63008A8CE4 /* libminiupnpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DC224DAA63008A8CE4 /* libminiupnpc.a */; };
-		243687E2224DAA6E008A8CE4 /* libepee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DE224DAA6D008A8CE4 /* libepee.a */; };
-		243687E3224DAA6E008A8CE4 /* libeasylogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DF224DAA6D008A8CE4 /* libeasylogging.a */; };
-		243687E4224DAA6E008A8CE4 /* libunbound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E0224DAA6D008A8CE4 /* libunbound.a */; };
+		243687D1224DA8AF008A8CE4 /* libboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D0224DA8AF008A8CE4 /* libboost.a */; platformFilter = ios; };
+		243687D4224DA8C3008A8CE4 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D2224DA8C3008A8CE4 /* libssl.a */; platformFilter = ios; };
+		243687D5224DA8C3008A8CE4 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D3224DA8C3008A8CE4 /* libcrypto.a */; platformFilter = ios; };
+		243687D7224DA8E6008A8CE4 /* libsodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687D6224DA8E6008A8CE4 /* libsodium.a */; platformFilter = ios; };
+		243687DD224DAA63008A8CE4 /* libminiupnpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DC224DAA63008A8CE4 /* libminiupnpc.a */; platformFilter = ios; };
+		243687E2224DAA6E008A8CE4 /* libepee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DE224DAA6D008A8CE4 /* libepee.a */; platformFilter = ios; };
+		243687E3224DAA6E008A8CE4 /* libeasylogging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687DF224DAA6D008A8CE4 /* libeasylogging.a */; platformFilter = ios; };
+		243687E4224DAA6E008A8CE4 /* libunbound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E0224DAA6D008A8CE4 /* libunbound.a */; platformFilter = ios; };
 		2484D7D2229E424E0030B2FB /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C4229E424D0030B2FB /* Subscription.swift */; };
 		2484D7D3229E424E0030B2FB /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C5229E424D0030B2FB /* StateType.swift */; };
 		2484D7D4229E424E0030B2FB /* Stringify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7C6229E424D0030B2FB /* Stringify.swift */; };
@@ -31,8 +31,8 @@
 		2484D7DD229E424E0030B2FB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CF229E424D0030B2FB /* Store.swift */; };
 		2484D7DE229E424E0030B2FB /* Store+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D0229E424E0030B2FB /* Store+extensions.swift */; };
 		2484D7DF229E424E0030B2FB /* AnyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D1229E424E0030B2FB /* AnyStore.swift */; };
-		24D9E0C2224DBBC0004B2041 /* libwallet_merged.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E1224DAA6D008A8CE4 /* libwallet_merged.a */; };
-		32FED3194B4849572F361593 /* Pods_CWMonero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C774353C72AF4F42C79427F7 /* Pods_CWMonero.framework */; };
+		24D9E0C2224DBBC0004B2041 /* libwallet_merged.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E1224DAA6D008A8CE4 /* libwallet_merged.a */; platformFilter = ios; };
+		32FED3194B4849572F361593 /* Pods_CWMonero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C774353C72AF4F42C79427F7 /* Pods_CWMonero.framework */; platformFilter = ios; };
 		3836731447CC7EC1CDE0710D /* Pods_CakeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4CAE5D50A77DB6F5A24C5A /* Pods_CakeWallet.framework */; };
 		640A2AA021761C640047E60C /* CWAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640A2A9F21761C640047E60C /* CWAlertViewController.swift */; };
 		640A2AA221761C870047E60C /* CWAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640A2AA121761C870047E60C /* CWAlertView.swift */; };
@@ -106,7 +106,7 @@
 		645F894121442E1B00B085AC /* CakeWalletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644A99D320E172FA0035429B /* CakeWalletCore.framework */; };
 		645F896521443BD700B085AC /* lmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 645F896421443BD700B085AC /* lmdb.m */; };
 		645F896621443BD700B085AC /* lmdb.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 645F896321443BD700B085AC /* lmdb.h */; };
-		645F899221443C7000B085AC /* liblmdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 645F896121443BD600B085AC /* liblmdb.a */; };
+		645F899221443C7000B085AC /* liblmdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 645F896121443BD600B085AC /* liblmdb.a */; platformFilter = ios; };
 		646FF2A720E11FFE00ADF30C /* CakeWalletCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 646FF2A520E11FFE00ADF30C /* CakeWalletCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		646FF2C920E1201F00ADF30C /* WalletType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FF2B020E1201D00ADF30C /* WalletType.swift */; };
 		646FF2CB20E1201F00ADF30C /* WalletKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FF2B220E1201D00ADF30C /* WalletKeys.swift */; };
@@ -263,7 +263,7 @@
 		6AE7241120DD5C5C003D6559 /* NodesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7241020DD5C5C003D6559 /* NodesList.swift */; };
 		6AF4786820C18CBE0072796B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF4786720C18CBE0072796B /* AuthenticationViewController.swift */; };
 		6AFC5C7D20C2CDCE007DFB53 /* WalletFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC5C7C20C2CDCE007DFB53 /* WalletFlow.swift */; };
-		82C75434D93F36C42237C8B0 /* Pods_CakeWalletLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE89DBDC2C4F3042B7085507 /* Pods_CakeWalletLib.framework */; };
+		82C75434D93F36C42237C8B0 /* Pods_CakeWalletLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE89DBDC2C4F3042B7085507 /* Pods_CakeWalletLib.framework */; platformFilter = ios; };
 		CA1D653F209A3EBB00A1FDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D653E209A3EBB00A1FDDB /* AppDelegate.swift */; };
 		CA1D6546209A3EBC00A1FDDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1D6545209A3EBC00A1FDDB /* Assets.xcassets */; };
 		CA1D6554209A3EBC00A1FDDB /* CakeWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1D6553209A3EBC00A1FDDB /* CakeWalletTests.swift */; };
@@ -2185,6 +2185,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2219,6 +2220,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2234,6 +2236,7 @@
 			baseConfigurationReference = CDE7607538002E6F6D8A770B /* Pods-CWMonero.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2270,6 +2273,7 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = network.loki.wallet.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2287,6 +2291,7 @@
 			baseConfigurationReference = 0E767FF05F5A8CA6AB231BAC /* Pods-CWMonero.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2323,6 +2328,7 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = network.loki.wallet.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2341,6 +2347,7 @@
 				DEVELOPMENT_TEAM = 32J6BB6VUS;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2354,6 +2361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32J6BB6VUS;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2384,6 +2392,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2418,6 +2427,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2566,6 +2576,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = SUQ8J2PCT7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2586,6 +2597,7 @@
 				);
 				MARKETING_VERSION = 1.1.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"$(inherited)",
@@ -2611,6 +2623,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = SUQ8J2PCT7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2631,6 +2644,7 @@
 				);
 				MARKETING_VERSION = 1.1.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"$(inherited)",
