@@ -17,13 +17,18 @@ private func getSavedTransactionPriority() -> TransactionPriority {
         return .slow
     }
     
-    let transactionsPriority = TransactionPriority(
+    var transactionsPriority = TransactionPriority(
         rawValue: UInt64(
             UserDefaults.standard.integer(
                 forKey: Configurations.DefaultsKeys.transactionPriority
             )
         )
     )
+    
+    // Force either slow or blink
+    if (transactionsPriority != .slow || transactionsPriority != .blink) {
+        transactionsPriority = nil
+    }
     
     return transactionsPriority ?? .slow
 }

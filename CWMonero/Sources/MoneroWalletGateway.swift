@@ -196,11 +196,13 @@ extension MoneroWalletGateway {
         case .slow:
             return 1
         case .default:
-            return 4
+            return 5
         case .fast:
-            return 24
+            return 25
         case .fastest:
-            return 960
+            return 125
+        case .blink:
+            return 5
         }
     }
 }

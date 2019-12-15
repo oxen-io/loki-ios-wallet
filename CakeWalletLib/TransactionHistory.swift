@@ -1,7 +1,9 @@
 import Foundation
 
+private var blinkRawValue: UInt64 = 0x626c6e6b
+
 public enum TransactionPriority: Formatted {
-    case slow, `default`, fast, fastest
+    case slow, `default`, fast, fastest, blink
     
     public var rawValue: UInt64 {
         switch self {
@@ -13,6 +15,8 @@ public enum TransactionPriority: Formatted {
             return 3
         case .fastest:
             return 4
+        case .blink:
+            return blinkRawValue
         }
     }
     
@@ -26,6 +30,8 @@ public enum TransactionPriority: Formatted {
             self = .fast
         case 4:
             self = .fastest
+        case blinkRawValue:
+            self = .blink
         default:
             return nil
         }
@@ -51,6 +57,8 @@ public enum TransactionPriority: Formatted {
             description = "Fast"
         case .fastest:
             description = "Fastest"
+        case .blink:
+            description = "Blink"
         }
         
         return description
