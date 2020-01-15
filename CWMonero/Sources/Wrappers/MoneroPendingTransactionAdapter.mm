@@ -7,6 +7,7 @@ using namespace std;
 
 struct MoneroPendingTransactionMember {
     Monero::PendingTransaction *tx;
+    bool blink;
 };
 
 @implementation MoneroPendingTransactionAdapter
@@ -38,7 +39,7 @@ struct MoneroPendingTransactionMember {
 
 - (BOOL) commit: (NSError **) error
 {
-    bool isCommited = member->tx->commit();
+    bool isCommited = member->tx->commit("", true, member->blink);
     
     if (!isCommited) {
         if (error != NULL) {

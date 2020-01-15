@@ -376,6 +376,7 @@ public:
     
     MoneroPendingTransactionMember *ptxMember = new MoneroPendingTransactionMember();
     ptxMember->tx = tx;
+    ptxMember->blink = priority == 0x626c6e6b;
     MoneroPendingTransactionAdapter *ptx = [[MoneroPendingTransactionAdapter alloc] initWithMember: ptxMember];
     
     return ptx;
