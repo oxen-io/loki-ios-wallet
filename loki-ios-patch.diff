@@ -1,29 +1,3 @@
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index aa33a5cc0..3fc7ff922 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -557,6 +557,9 @@ else()
-   elseif(IOS AND ARCH STREQUAL "arm64")
-     message(STATUS "IOS: Changing arch from arm64 to armv8")
-     set(ARCH_FLAG "-march=armv8")
-+  elseif(IOS AND ARCH STREQUAL "x86_64")
-+    message(STATUS "IOS: Changing arch from x86_64 to x86-64")
-+    set(ARCH_FLAG "-march=x86-64")
-   else()
-     set(ARCH_FLAG "-march=${ARCH}")
-     if(ARCH STREQUAL "native")
-diff --git a/CMakeLists_IOS.txt b/CMakeLists_IOS.txt
-index 9273af19f..421414bc5 100644
---- a/CMakeLists_IOS.txt
-+++ b/CMakeLists_IOS.txt
-@@ -26,6 +26,7 @@ set (CMAKE_SYSTEM_VERSION 1)
- set (UNIX True)
- set (APPLE True)
- set (IOS True)
-+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D IOS")
- 
- # Required as of cmake 2.8.10
- set (CMAKE_OSX_DEPLOYMENT_TARGET "" CACHE STRING "Force unset of the deployment target for iOS" FORCE)
 diff --git a/cmake/CheckTrezor.cmake b/cmake/CheckTrezor.cmake
 index 6aabdda36..c5db7b551 100644
 --- a/cmake/CheckTrezor.cmake
@@ -38,24 +12,24 @@ index 6aabdda36..c5db7b551 100644
      include(FindProtobuf OPTIONAL)
      find_package(Protobuf)
 diff --git a/src/crypto/cn_heavy_hash.hpp b/src/crypto/cn_heavy_hash.hpp
-index bc522d6ae..8c08dbd26 100644
+index 49176faa6..ae269a924 100644
 --- a/src/crypto/cn_heavy_hash.hpp
 +++ b/src/crypto/cn_heavy_hash.hpp
-@@ -57,7 +57,7 @@
+@@ -59,7 +59,7 @@
  #define HAS_INTEL_HW
  #endif
  
 -#if defined(__aarch64__)
 +#if (0)
+ #ifndef __clang__
  #pragma GCC target ("+crypto")
- #include <sys/auxv.h>
- #include <asm/hwcap.h>
+ #endif
 diff --git a/src/crypto/rx-slow-hash.c b/src/crypto/rx-slow-hash.c
-index 59bd89d13..5db8b1a49 100644
+index 251a787dc..78ec228be 100644
 --- a/src/crypto/rx-slow-hash.c
 +++ b/src/crypto/rx-slow-hash.c
-@@ -115,18 +115,7 @@ static void cpuid(int CPUInfo[4], int InfoType)
- }
+@@ -116,18 +116,7 @@ static void cpuid(int CPUInfo[4], int InfoType)
+ 
  static inline int check_aes_hw(void)
  {
 -#if defined(__x86_64__)
@@ -73,7 +47,7 @@ index 59bd89d13..5db8b1a49 100644
  }
  
  static volatile int use_rx_jit_flag = -1;
-@@ -189,171 +178,22 @@ typedef struct seedinfo {
+@@ -190,171 +179,22 @@ typedef struct seedinfo {
  
  static CTHR_THREAD_RTYPE rx_seedthread(void *arg) {
    seedinfo *si = arg;

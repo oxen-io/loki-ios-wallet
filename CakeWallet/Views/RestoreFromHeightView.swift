@@ -35,7 +35,10 @@ private let dates: [Date: UInt64] = {
         formatter.date(from: "2019-07")!: 304759,
         formatter.date(from: "2019-08")!: 326680,
         formatter.date(from: "2019-09")!: 348927,
-        formatter.date(from: "2019-10")!: 370534
+        formatter.date(from: "2019-10")!: 370534,
+        formatter.date(from: "2019-11")!: 392808,
+        formatter.date(from: "2019-12")!: 414271,
+        formatter.date(from: "2020-01")!: 436563,
     ]
 }()
 
