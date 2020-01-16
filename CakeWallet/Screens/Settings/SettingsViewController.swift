@@ -268,9 +268,8 @@ final class SettingsViewController: BaseViewController<SettingsView>, UITableVie
         contentView.table.dataSource = self
         let transactionPriorities = [
             TransactionPriority.slow,
-            TransactionPriority.default,
-            TransactionPriority.fast,
-            TransactionPriority.fastest]
+            TransactionPriority.blink
+        ]
         
         let fiatCurrencyCellItem = SettingsPickerCellItem<FiatCurrency>(
             title: NSLocalizedString("currency", comment: ""),

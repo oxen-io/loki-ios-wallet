@@ -16,5 +16,13 @@
 		<key>uri</key>
 		<string>nodes.hashvault.pro:22023</string>
 	</dict>
+	<dict>
+		<key>uri</key>
+		<string>node.loki-pool.com:18081</string>
+	</dict>
+    <dict>
+		<key>uri</key>
+		<string>public.loki.foundation:22023</string>
+	</dict>
 </array>
 </plist>
