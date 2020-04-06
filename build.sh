@@ -7,6 +7,7 @@ LIBRARY_DIR="$SOURCE_DIR/Libraries"
 BOOST_DIR="$LIBRARY_DIR/boost"
 LOKI_DIR="$LIBRARY_DIR/loki"
 OPENSSL_DIR="$LIBRARY_DIR/openssl"
+SODIUM_DIR="$LIBRARY_DIR/libsodium/libsodium-ios"
 
 MISSING_INCLUDES_DIR="$LIBRARY_DIR/missing_headers"
 mkdir -p ${MISSING_INCLUDES_DIR}/sys
@@ -47,6 +48,7 @@ for ARCH_ENTRY in ${ARCHS[@]}; do
     export CPLUS_INCLUDE_PATH="${OPENSSL_DIR}/include:${CPLUS_INCLUDE_PATH}"
     export CFLAGS="-I ${MISSING_INCLUDES_DIR} ${CFLAGS}"
 
+    export PKG_CONFIG_PATH="${SODIUM_DIR}/lib/pkgconfig"
     BUILD_DIR=${LIBRARY_DIR}/loki/build/${BUILD_TYPE}-${ARCH_ENTRY}
     mkdir -p ${BUILD_DIR}
     pushd ${BUILD_DIR}
@@ -57,7 +59,6 @@ for ARCH_ENTRY in ${ARCHS[@]}; do
             -D BUILD_SHARED_LIBS=OFF \
             -D CMAKE_BUILD_TYPE=${BUILD_TYPE} \
             -D CMAKE_INSTALL_PREFIX=${LOKI_DIR} \
-            -D DOWNLOAD_SODIUM=FORCE \
             -D INSTALL_VENDORED_LIBUNBOUND=ON \
             -D IOS=ON \
             -D IOS_PLATFORM=${IOS_PLATFORM} \
