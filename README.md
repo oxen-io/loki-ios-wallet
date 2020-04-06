@@ -1,5 +1,7 @@
 # Installation
 
+#### The Loki IOS Wallet is a fork of the Cake Wallet
+
 1. Clone the repository.
 ```sh
 git clone https://github.com/loki-project/loki-ios-wallet.git
