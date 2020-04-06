@@ -65,7 +65,7 @@ for ARCH_ENTRY in ${ARCHS[@]}; do
             -D STATIC=ON \
             ../..
 
-    make VERBOSE=1 -j$(nproc) && make install
+    make VERBOSE=1 -j$(sysctl -n hw.physicalcpu) && make install
     popd
 done
 

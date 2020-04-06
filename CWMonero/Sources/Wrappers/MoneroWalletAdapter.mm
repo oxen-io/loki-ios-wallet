@@ -346,17 +346,15 @@ public:
     
     string addressStdString = [address UTF8String];
     string paymentIdStdString = [paymentId UTF8String];
-    uint32_t mixin = member->wallet->defaultMixin();
-    
-    Monero::PendingTransaction::Priority _priopity = static_cast<Monero::PendingTransaction::Priority>(priority);
+
     Monero::PendingTransaction *tx;
     if (amount_str != nil) {
         uint64_t amount;
         string amountStdString = [amount_str UTF8String];
         cryptonote::parse_amount(amount, amountStdString);
-        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, amount, mixin, _priopity);
+        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, amount, 0, priority);
     } else {
-        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, Monero::optional<uint64_t>(), mixin, _priopity);
+        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, Monero::optional<uint64_t>(), 0, priority);
     }
     
     int status = tx->status();
