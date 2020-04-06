@@ -31,6 +31,7 @@
 		2484D7DD229E424E0030B2FB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7CF229E424D0030B2FB /* Store.swift */; };
 		2484D7DE229E424E0030B2FB /* Store+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D0229E424E0030B2FB /* Store+extensions.swift */; };
 		2484D7DF229E424E0030B2FB /* AnyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484D7D1229E424E0030B2FB /* AnyStore.swift */; };
+		24924E59243B0539009D0BFA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 24924E58243B0539009D0BFA /* libsqlite3.tbd */; };
 		24D9E0C2224DBBC0004B2041 /* libwallet_merged.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243687E1224DAA6D008A8CE4 /* libwallet_merged.a */; platformFilter = ios; };
 		32FED3194B4849572F361593 /* Pods_CWMonero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C774353C72AF4F42C79427F7 /* Pods_CWMonero.framework */; platformFilter = ios; };
 		3836731447CC7EC1CDE0710D /* Pods_CakeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4CAE5D50A77DB6F5A24C5A /* Pods_CakeWallet.framework */; };
@@ -378,6 +379,7 @@
 		2484D7CF229E424D0030B2FB /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2484D7D0229E424E0030B2FB /* Store+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+extensions.swift"; sourceTree = "<group>"; };
 		2484D7D1229E424E0030B2FB /* AnyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStore.swift; sourceTree = "<group>"; };
+		24924E58243B0539009D0BFA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		29B261655A51F77B63B42D0F /* Pods-CakeWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CakeWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CakeWallet/Pods-CakeWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		6403391721502DEE00D7A1F1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6403391821502DEE00D7A1F1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24924E59243B0539009D0BFA /* libsqlite3.tbd in Frameworks */,
 				243687D5224DA8C3008A8CE4 /* libcrypto.a in Frameworks */,
 				243687D7224DA8E6008A8CE4 /* libsodium.a in Frameworks */,
 				243687DD224DAA63008A8CE4 /* libminiupnpc.a in Frameworks */,
@@ -1338,6 +1341,7 @@
 		93B531BDF22CFC9B27F1D9F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24924E58243B0539009D0BFA /* libsqlite3.tbd */,
 				243687D0224DA8AF008A8CE4 /* libboost.a */,
 				243687D3224DA8C3008A8CE4 /* libcrypto.a */,
 				243687DF224DAA6D008A8CE4 /* libeasylogging.a */,
@@ -2248,6 +2252,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Libraries/loki/src",
+					"$(PROJECT_DIR)/Libraries/loki/include",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/include",
 					"$(PROJECT_DIR)/Libraries/openssl/include",
 					"$(PROJECT_DIR)/Libraries/loki/external",
@@ -2303,6 +2308,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Libraries/loki/src",
+					"$(PROJECT_DIR)/Libraries/loki/include",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/include",
 					"$(PROJECT_DIR)/Libraries/openssl/include",
 					"$(PROJECT_DIR)/Libraries/loki/external",
@@ -2485,6 +2491,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"USE_TESTNET=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2497,7 +2504,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG USE_TESTNET";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2595,7 +2602,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
@@ -2642,7 +2649,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
