@@ -18,6 +18,15 @@ LMDB_DIR="$LIBRARY_DIR/../lmdb/Sources"
 LOKI_URL="https://github.com/loki-project/loki.git"
 LOKI_DIR="$LIBRARY_DIR/loki"
 
+LOKI_URL="https://github.com/loki-project/loki.git"
+LOKI_DIR="$LIBRARY_DIR/loki"
+
+SODIUM_VERSION=1.0.18-RELEASE
+SODIUM_VERSION_CLEAN=1.0.18
+SODIUM_HASH=940ef42797baa0278df6b7fd9e67c7590f87744b
+SODIUM_URL="https://github.com/jedisct1/libsodium.git -b ${SODIUM_VERSION}"
+SODIUM_DIR="$LIBRARY_DIR/libsodium"
+
 echo "============================ OpenSSL ============================"
 if [ ! -d "$OPENSSL_DIR" ]; then
   echo "Cloning Open SSL from - $OPENSSL_URL"
@@ -54,5 +63,43 @@ pushd $BOOST_DIR/scripts/
 export BOOST_LIBS="atomic chrono date_time filesystem program_options regex serialization system thread"
 ./build-libc++
 popd $SOURCE_DIR
+
+echo "============================ SODIUM ============================"
+if [ ! -d "$SODIUM_DIR" ]; then
+  echo "Cloning libsodium from - $SODIUM_URL"
+  git clone $SODIUM_URL $SODIUM_DIR
+fi
+
+pushd ${SODIUM_DIR}
+test `git rev-parse HEAD` = ${SODIUM_HASH} || exit 1
+./dist-build/ios.sh
+popd
+
+# NOTE: The default sodium IOS build script, builds a fat library of all the IOS
+# architectures (from libsodium-ios/tmp/) into 1 (at libsodium-ios/lib). Each
+# individual target has a dedicated pkgconfig file but after the manually
+# merging step, there's no pkgconfig file generated for the fat library. The tmp
+# directory is also deleted by default in the script, so we can't just copy it
+# out and adjust the prefix folder.
+
+# So we generate one, the contents is based off said previously generate files.
+SODIUM_PREFIX=${SODIUM_DIR}/libsodium-ios
+SODIUM_PKG_CONFIG=${SODIUM_PREFIX}/lib/pkgconfig
+SODIUM_PKG_CONFIG_FILE=${SODIUM_PKG_CONFIG}/libsodium.pc
+mkdir -p ${SODIUM_PREFIX}/lib/pkgconfig
+mkdir -p ${SODIUM_PREFIX}/include
+
+echo prefix=${SODIUM_PREFIX} >> ${SODIUM_PKG_CONFIG_FILE}
+echo exec_prefix=${SODIUM_PREFIX} >> ${SODIUM_PKG_CONFIG_FILE}
+echo libdir=${SODIUM_PREFIX}/lib >> ${SODIUM_PKG_CONFIG_FILE}
+echo includedir=${SODIUM_PREFIX}/include >> ${SODIUM_PKG_CONFIG_FILE}
+echo >> ${SODIUM_PKG_CONFIG_FILE}
+echo Name: libsodium >> ${SODIUM_PKG_CONFIG_FILE}
+echo Version: ${SODIUM_VERSION_CLEAN} >> ${SODIUM_PKG_CONFIG_FILE}
+echo Description: A modern and easy-to-use crypto library >> ${SODIUM_PKG_CONFIG_FILE}
+echo >> ${SODIUM_PKG_CONFIG_FILE}
+echo Libs: -L${SODIUM_PREFIX}/lib -lsodium >> ${SODIUM_PKG_CONFIG_FILE}
+echo Libs.private:  -pthread >> ${SODIUM_PKG_CONFIG_FILE}
+echo Cflags: -I${SODIUM_PREFIX}/include >> ${SODIUM_PKG_CONFIG_FILE}
 
 echo -e "\n Finished installing libraries"
