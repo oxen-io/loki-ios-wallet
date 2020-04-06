@@ -2491,6 +2491,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"USE_TESTNET=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2503,7 +2504,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG USE_TESTNET";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = "debug-only";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2601,7 +2602,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
@@ -2648,7 +2649,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/boost/libs/boost/ios",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fno-stack-check";
 				OTHER_LDFLAGS = (
