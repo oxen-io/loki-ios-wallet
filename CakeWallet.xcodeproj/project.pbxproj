@@ -2189,7 +2189,10 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2224,7 +2227,10 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletCore";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2278,7 +2284,10 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = network.loki.wallet.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2334,7 +2343,10 @@
 					"$(PROJECT_DIR)/Libraries/loki/lib-ios",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = network.loki.wallet.CWMonero;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2398,7 +2410,10 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2433,7 +2448,10 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.loki-project.loki-wallet.CakeWalletLib";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2604,7 +2622,10 @@
 				);
 				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"$(inherited)",
@@ -2651,7 +2672,10 @@
 				);
 				MARKETING_VERSION = 3.0.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fno-stack-check";
+				OTHER_CFLAGS = (
+					"-fno-stack-check",
+					"-DIOS",
+				);
 				OTHER_LDFLAGS = (
 					"-lc++",
 					"$(inherited)",
