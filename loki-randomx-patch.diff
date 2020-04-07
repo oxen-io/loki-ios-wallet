@@ -1,0 +1,81 @@
+diff --git a/Libraries/loki/src/crypto/rx-slow-hash.c b/src/crypto/rx-slow-hash.c
+index 251a787dc..809ceb14b 100644
+--- a/Libraries/loki/src/crypto/rx-slow-hash.c
++++ b/Libraries/loki/src/crypto/rx-slow-hash.c
+@@ -159,6 +159,7 @@ static inline int use_rx_jit(void)
+ #define SEEDHASH_EPOCH_LAG		64
+ 
+ void rx_reorg(const uint64_t split_height) {
++#if 0
+   int i;
+   CTHR_MUTEX_LOCK(rx_mutex);
+   for (i=0; i<2; i++) {
+@@ -169,6 +170,7 @@ void rx_reorg(const uint64_t split_height) {
+     }
+   }
+   CTHR_MUTEX_UNLOCK(rx_mutex);
++#endif
+ }
+ 
+ uint64_t rx_seedheight(const uint64_t height) {
+@@ -189,12 +191,15 @@ typedef struct seedinfo {
+ } seedinfo;
+ 
+ static CTHR_THREAD_RTYPE rx_seedthread(void *arg) {
++#if 0
+   seedinfo *si = arg;
+   randomx_init_dataset(rx_dataset, si->si_cache, si->si_start, si->si_count);
++#endif
+   CTHR_THREAD_RETURN;
+ }
+ 
+ static void rx_initdata(randomx_cache *rs_cache, const int miners, const uint64_t seedheight) {
++#if 0
+   if (miners > 1) {
+     unsigned long delta = randomx_dataset_item_count() / miners;
+     unsigned long start = 0;
+@@ -231,10 +236,14 @@ static void rx_initdata(randomx_cache *rs_cache, const int miners, const uint64_
+     randomx_init_dataset(rx_dataset, rs_cache, 0, randomx_dataset_item_count());
+   }
+   rx_dataset_height = seedheight;
++#endif
+ }
+ 
++// NOTE: The IOS wallet has no need to include RandomX code. Getting it to work
++// requires a lot more work than its worth.
+ void rx_slow_hash(const uint64_t mainheight, const uint64_t seedheight, const char *seedhash, const void *data, size_t length,
+   char *hash, int miners, int is_alt) {
++#if 0
+   uint64_t s_height = rx_seedheight(mainheight);
+   int toggle = (s_height & SEEDHASH_EPOCH_BLOCKS) != 0;
+   randomx_flags flags = RANDOMX_FLAG_DEFAULT;
+@@ -337,19 +346,23 @@ void rx_slow_hash(const uint64_t mainheight, const uint64_t seedheight, const ch
+   /* altchain slot users always get fully serialized */
+   if (is_alt)
+     CTHR_MUTEX_UNLOCK(rx_sp->rs_mutex);
++#endif
+ }
+ 
+ void rx_slow_hash_allocate_state(void) {
+ }
+ 
+ void rx_slow_hash_free_state(void) {
++#if 0
+   if (rx_vm != NULL) {
+     randomx_destroy_vm(rx_vm);
+     rx_vm = NULL;
+   }
++#endif
+ }
+ 
+ void rx_stop_mining(void) {
++#if 0
+   CTHR_MUTEX_LOCK(rx_dataset_mutex);
+   if (rx_dataset != NULL) {
+     randomx_dataset *rd = rx_dataset;
+@@ -357,4 +370,5 @@ void rx_stop_mining(void) {
+     randomx_release_dataset(rd);
+   }
+   CTHR_MUTEX_UNLOCK(rx_dataset_mutex);
++#endif
+ }
