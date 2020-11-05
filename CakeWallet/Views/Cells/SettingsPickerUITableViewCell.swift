@@ -3,11 +3,11 @@ import CakeWalletLib
 
 final class SettingsPickerUITableViewCell<Item: Formatted>: FlexCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     typealias Action = ((Item) -> Void)?
-    var onFinish: Action
+    var onFinish: Action = nil
     let pickerView: UIPickerView
     let pinckerTextField: UITextField
     private(set) var pickerOptions: [Item]
-    private var action: Action
+    private var action: Action = nil
     private var selectedOption: Item?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

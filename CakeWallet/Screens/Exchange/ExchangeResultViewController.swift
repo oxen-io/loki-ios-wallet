@@ -453,7 +453,6 @@ final class ExchangeResultViewController: BaseViewController<ExchangeResultView>
                         WalletActions.send(
                             amount: amount,
                             toAddres: address,
-                            paymentID: "",
                             priority: priority,
                             handler: { result in
                                 alert.dismiss(animated: true) {
