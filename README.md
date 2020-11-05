@@ -6,19 +6,12 @@
 ```sh
 git clone https://github.com/loki-project/loki-ios-wallet.git
 ```
-2. Install [homebrew](https://brew.sh/)
-3. Install loki dependencies:
+2. Download a static ios build from https://builds.lokinet.dev (will be named something like
+   ios-deps-[...].tar.xz), extract it into `loki-ios-wallet`, and rename (or symlink) the
+   ios-deps-[...] directory to `loki-core`.
+3. Install cocoapod and install pod dependences:
 ```sh
-brew install pkgconfig
-brew install cmake
-```
-4. Build the loki iOS libraries.
-```sh
-./install.sh
-./build.sh
-```
-5. Install dependencies from Pod.
-```sh
+sudo gem install cocoapods
 pod install
 ```
 
@@ -32,7 +25,3 @@ You can do this by doing the following:
 4. Add `USE_TESTNET=1` to `DEBUG` or `RELEASE` depending on what your needs are.
 5. Search "Swift Compiler - Custom Flags"
 6. Add `USE_TESTNET` under `Active Compilation Conditions`
-
-> We use forked the repo of [ofxiOSBoost](https://github.com/Mikunj/ofxiOSBoost/tree/loki). We do this ONLY for more convenient installation process.
-
-
