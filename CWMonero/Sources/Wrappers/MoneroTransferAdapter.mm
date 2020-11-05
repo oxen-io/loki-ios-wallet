@@ -13,7 +13,7 @@
     return self;
 }
 
-- (instancetype)initWith:(Monero::TransactionInfo::Transfer *)transfer
+- (instancetype)initWith:(Wallet::TransactionInfo::Transfer *)transfer
 {
     self = [super init];
     if (self) {

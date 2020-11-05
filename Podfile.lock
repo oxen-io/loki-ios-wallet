@@ -27,7 +27,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - FlexLayout
     - IQKeyboardManagerSwift
@@ -55,6 +55,6 @@ SPEC CHECKSUMS:
   SwiftSoup: 277f7ef548826e0ca7603a06b30d4a5df3ee0587
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 44158ea65f105c31f4d0489618d19caf6d86d9cb
+PODFILE CHECKSUM: 6d6625f68c0661dc0102d2b32ea23191b3f42f90
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.10.0

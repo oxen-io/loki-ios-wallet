@@ -4,7 +4,7 @@
 #import "MoneroTransferAdapter.mm"
 
 struct MoneroTransactionInfoMember {
-    Monero::TransactionInfo *tx;
+    Wallet::TransactionInfo *tx;
 };
 
 @implementation MoneroTransactionInfoAdapter: NSObject
