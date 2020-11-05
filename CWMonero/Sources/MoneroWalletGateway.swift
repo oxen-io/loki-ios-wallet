@@ -115,7 +115,7 @@ public final class MoneroWalletGateway: WalletGateway {
     }
 }
 
-private let estimatedSizeOfDefaultTransaction = 2000000
+private let estimatedSizeOfDefaultTransaction = UInt64(2000)
 private var cachedFees: [TransactionPriority: Amount] = [:]
 
 extension MoneroWalletGateway {
@@ -127,12 +127,10 @@ extension MoneroWalletGateway {
                 return
             }
 
-            self.fetchFeePerKb(withNode: node) { result in
+            self.fetchFees(withNode: node, forPriority: priority) { result in
                 switch result {
-                case let .success(feePerKb):
-                    let kb = UInt64((estimatedSizeOfDefaultTransaction + 1023) / 1024) // Round to kb
-                    let multiplier = self.getMultiplier(forPriority: priority)
-                    let feeValue = kb * feePerKb * multiplier
+                case let .success((feePerOut, feePerByte)):
+                    let feeValue = UInt64(2) * feePerOut + estimatedSizeOfDefaultTransaction * feePerByte
                     let fee = MoneroAmount(value: feeValue)
                     cachedFees[priority] = fee
                     handler?(.success(fee))
@@ -143,7 +141,7 @@ extension MoneroWalletGateway {
 //        }
     }
 
-    private func fetchFeePerKb(withNode node: NodeDescription, handler: ((Result<UInt64>) -> Void)?) {
+    private func fetchFees(withNode node: NodeDescription, forPriority priority: TransactionPriority, handler: ((Result<(UInt64, UInt64)>) -> Void)?) {
         let urlString = String(format: "http://%@/json_rpc", node.uri).addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
@@ -152,8 +150,7 @@ extension MoneroWalletGateway {
         let requestBody = [
             "jsonrpc": "2.0",
             "id": "0",
-            "method": "get_fee_estimate",
-            "params": "{\"grace_blocks\":10}"
+            "method": "get_fee_estimate"
         ]
 
         do {
@@ -171,17 +168,18 @@ extension MoneroWalletGateway {
                 }
 
                 guard let data = data else {
-                    handler?(.success(0))
+                    handler?(.success((0, 0)))
                     return
                 }
 
                 if
                     let decoded = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                     let result = decoded["result"] as? [String: Any],
-                    let fee = result["fee"] as? UInt64 {
-                    handler?(.success(fee))
+                    let per_out = result[priority == .slow ? "fee_per_output" : "blink_fee_per_output"] as? UInt64,
+                    let per_byte = result[priority == .slow ? "fee_per_byte" : "blink_fee_per_byte"] as? UInt64 {
+                    handler?(.success((per_out, per_byte)))
                 } else {
-                    handler?(.success(0))
+                    handler?(.success((0, 0)))
                 }
             } catch {
                 handler?(.failed(error))
@@ -189,20 +187,5 @@ extension MoneroWalletGateway {
         }
 
         connection.resume()
-    }
-
-    private func getMultiplier(forPriority priority: TransactionPriority) -> UInt64 {
-        switch priority {
-        case .slow:
-            return 1
-        case .default:
-            return 5
-        case .fast:
-            return 25
-        case .fastest:
-            return 125
-        case .blink:
-            return 5
-        }
     }
 }

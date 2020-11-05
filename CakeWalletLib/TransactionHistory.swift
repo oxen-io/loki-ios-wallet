@@ -1,18 +1,12 @@
 import Foundation
 
 public enum TransactionPriority: Formatted {
-    case slow, `default`, fast, fastest, blink
+    case slow, blink
     
     public var rawValue: UInt64 {
         switch self {
         case .slow:
             return 1
-        case .default:
-            return 2
-        case .fast:
-            return 3
-        case .fastest:
-            return 4
         case .blink:
             return 5
         }
@@ -22,16 +16,8 @@ public enum TransactionPriority: Formatted {
         switch rawValue {
         case 1:
             self = .slow
-        case 2:
-            self = .default
-        case 3:
-            self = .fast
-        case 4:
-            self = .fastest
-        case 5:
-            self = .blink
         default:
-            return nil
+            self = .blink
         }
     }
     
@@ -49,12 +35,6 @@ public enum TransactionPriority: Formatted {
         switch self {
         case .slow:
             description = "Slow"
-        case .default:
-            description = "Regular"
-        case .fast:
-            description = "Fast"
-        case .fastest:
-            description = "Fastest"
         case .blink:
             description = "Blink"
         }

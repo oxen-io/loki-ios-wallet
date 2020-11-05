@@ -14,7 +14,7 @@ private func getSavedFiatCurrency() -> FiatCurrency {
 
 private func getSavedTransactionPriority() -> TransactionPriority {
     if UserDefaults.standard.value(forKey: Configurations.DefaultsKeys.transactionPriority.string()) == nil {
-        return .slow
+        return .blink
     }
     
     var transactionsPriority = TransactionPriority(

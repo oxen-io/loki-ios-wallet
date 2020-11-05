@@ -352,11 +352,11 @@ public:
         uint64_t amount;
         string amountStdString = [amount_str UTF8String];
         cryptonote::parse_amount(amount, amountStdString);
-        tx = member->wallet->createTransaction(addressStdString, amount, 0, priority);
+        tx = member->wallet->createTransaction(addressStdString, amount, priority);
     } else {
-        tx = member-> wallet->createTransaction(addressStdString, std::optional<uint64_t>(), 0, priority);
+        tx = member->wallet->createTransaction(addressStdString, std::nullopt, priority);
     }
-    
+
     auto [status, errStr] = tx->status();
     
     if (status == Monero::PendingTransaction::Status::Status_Error
