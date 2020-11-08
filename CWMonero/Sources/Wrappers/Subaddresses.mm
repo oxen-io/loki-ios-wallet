@@ -4,6 +4,8 @@
 #import "MoneroWalletAdapter.mm"
 #import "wallet/api/subaddress.h"
 
+namespace Monero = Wallet;
+
 uint32_t DEFAULT_ACCOUNT_INDEX = 0;
 
 @implementation Subaddresses: NSObject

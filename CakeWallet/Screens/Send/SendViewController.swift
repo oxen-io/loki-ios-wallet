@@ -21,9 +21,6 @@ struct MoneroQRResult: QRUri {
         
         return MoneroAmount(from: amountStr)
     }
-    var paymentId: String? {
-        return self.uri.slice(from: "tx_payment_id=", to: "&")
-    }
     
     init(uri: String) {
         self.uri = uri
@@ -161,8 +158,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
         if let amount = uri.amount {
             updateAmount(amount)
         }
-        
-        updatePaymentId(uri.paymentId)
     }
     
     func getCrypto(for addressView: AddressView) -> CryptoCurrency {
@@ -326,7 +321,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     private func createTransaction(_ handler: (() -> Void)? = nil) {
         let authController = AuthenticationViewController(store: store, authentication: AuthenticationImpl())
         let navController = UINavigationController(rootViewController: authController)
-        let paymentID = contentView.paymentIdTextField.text ?? ""
         
         authController.handler = { [weak self] in
             authController.dismiss(animated: true) {
@@ -340,7 +334,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
                         WalletActions.send(
                             amount: amount,
                             toAddres: address,
-                            paymentID: paymentID,
                             priority: priority,
                             handler: { result in
                                 alert.dismiss(animated: true) {
@@ -379,10 +372,6 @@ final class SendViewController: BaseViewController<SendView>, StoreSubscriber, Q
     
     private func updateAmount(_ amount: Amount) {
         contentView.cryptoAmountTextField.text = amount.formatted()
-    }
-    
-    private func updatePaymentId(_ paymentId: String?) {
-        contentView.paymentIdTextField.text = paymentId
     }
     
     private func updateAddress(_ address: String) {

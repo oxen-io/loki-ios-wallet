@@ -9,7 +9,7 @@ extension TransactionDescription {
             totalAmount: MoneroAmount(value: moneroTransactionInfo.amount()),
             fee: MoneroAmount(value: moneroTransactionInfo.fee()),
             direction: moneroTransactionInfo.direction() != 0 ? .outcoming : .incoming,
-            priority: .default,
+            priority: .blink,
             status: .ok,
             isPending: moneroTransactionInfo.blockHeight() <= 0,
             height: moneroTransactionInfo.blockHeight(),

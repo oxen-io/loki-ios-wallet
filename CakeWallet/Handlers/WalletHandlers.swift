@@ -59,7 +59,7 @@ public struct SaveHandler: AsyncHandler {
 
 public struct CreateTransactionHandler: AsyncHandler {
     public func handle(action: WalletActions, store: Store<ApplicationState>, handler: @escaping (AnyAction?) -> Void) {
-        guard case let .send(amount, address, paymentID, priority, completionHandler) = action else { return }
+        guard case let .send(amount, address, priority, completionHandler) = action else { return }
         
         walletQueue.async {
             do {
@@ -69,7 +69,6 @@ public struct CreateTransactionHandler: AsyncHandler {
                     pendingTransaction = try moneroWallet.send(
                         amount: amount,
                         to: address,
-                        paymentID: paymentID,
                         withPriority: priority)
                 } else {
                     pendingTransaction = try currentWallet.send(

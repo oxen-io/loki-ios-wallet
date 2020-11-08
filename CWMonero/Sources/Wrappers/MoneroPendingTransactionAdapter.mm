@@ -6,7 +6,7 @@
 using namespace std;
 
 struct MoneroPendingTransactionMember {
-    Monero::PendingTransaction *tx;
+    Wallet::PendingTransaction *tx;
     bool blink;
 };
 
@@ -43,7 +43,7 @@ struct MoneroPendingTransactionMember {
     
     if (!isCommited) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->tx->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->tx->status().second.c_str()];
 //            *error = [NSError errorWithDomain: MoneroWalletErrorDomain
 //                                         code: MoneroWalletTransactionCreatingError
 //                                     userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -57,12 +57,12 @@ struct MoneroPendingTransactionMember {
 
 - (int) status
 {
-    return member->tx->status();
+    return member->tx->status().first;
 }
 
 - (NSString *) errorString
 {
-    return [NSString stringWithUTF8String: member->tx->errorString().c_str()];
+    return [NSString stringWithUTF8String: member->tx->status().second.c_str()];
 }
 
 - (uint64_t) amount

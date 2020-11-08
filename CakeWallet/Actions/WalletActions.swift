@@ -13,6 +13,6 @@ public enum WalletActions: HandlableAction {
     case fetchWalletKeys
     case save
     case commit(transaction: PendingTransaction, handler: (Result<Void>) -> Void)
-    case send(amount: Amount?, toAddres: String, paymentID: String, priority: TransactionPriority, handler: (Result<PendingTransaction>) -> Void)
+    case send(amount: Amount?, toAddres: String, priority: TransactionPriority, handler: (Result<PendingTransaction>) -> Void)
     case rescan(fromHeight: UInt64, handler: () -> Void)
 }

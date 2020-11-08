@@ -4,9 +4,6 @@ import FlexLayout
 final class SendView: BaseScrollFlexViewWithBottomSection {
     let cardView: CardView
     let addressView: AddressView
-    let paymentIdTextField: UITextField
-    let pastPaymentIDButton: PasteButton
-    let paymentIdContainer: UIView
     let cryptoAmountTextField: FloatingLabelTextField
     let currenciesRowViev: UIView
     let currenciesContainer: UIView
@@ -25,9 +22,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
     required init() {
         cardView = CardView()
         addressView = AddressView()
-        paymentIdTextField = FloatingLabelTextField(placeholder: NSLocalizedString("Payment ID", comment: ""), isOptional: true)
-        pastPaymentIDButton = PasteButton(pastable: paymentIdTextField)
-        paymentIdContainer = UIView()
         cryptoAmountTextField = FloatingLabelTextField(placeholder: "CRT")
         currenciesRowViev = UIView()
         currenciesContainer = UIView()
@@ -70,11 +64,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
             flex.addItem(cryptoAmonutContainer)
         }
         
-        paymentIdContainer.flex.direction(.row).backgroundColor(.clear).define { flex in
-            flex.addItem(paymentIdTextField).grow(1).marginRight(10)
-            flex.addItem(pastPaymentIDButton).height(40).width(40)
-        }
-        
         currenciesContainer.flex.direction(.row).justifyContent(.spaceBetween).define { flex in
             flex.addItem(cryptoAmountTextField).grow(1)
             flex.addItem(sendAllButton).height(40).marginLeft(10)
@@ -87,7 +76,6 @@ final class SendView: BaseScrollFlexViewWithBottomSection {
         
         cardView.flex.alignItems(.center).padding(20, 20, 30, 20).define { flex in
             flex.addItem(addressView).width(100%)
-            flex.addItem(paymentIdContainer).marginTop(20).width(100%).height(50)
             flex.addItem(currenciesContainer).marginTop(20).width(100%).height(50)
             flex.addItem(estimatedFeeContriner).marginTop(20).width(100%)
             flex.addItem(estimatedDescriptionLabel).marginTop(20).width(100%)

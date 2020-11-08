@@ -7,7 +7,6 @@
 #import "crypto/crypto.h"
 
 #import "crypto/random.h"
-#include "include_base_utils.h"
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"
 #include "cryptonote_basic/cryptonote_format_utils.h"
 #include "crypto/crypto-ops.h"
@@ -19,6 +18,7 @@
 using namespace epee;
 using namespace cryptonote;
 using namespace std;
+namespace Monero = Wallet;
 
 struct MonerWalletListener: Monero::WalletListener {
     MoneroWalletAdapter *wallet;
@@ -187,7 +187,7 @@ public:
     
     if (!isCreated) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletCreatingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -207,7 +207,7 @@ public:
     
     if (!isOpened) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletCreatingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -273,7 +273,7 @@ public:
     
     if (!isRecovered) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletRecoveringError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -318,7 +318,7 @@ public:
     
     if (!isRecovered) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletRecoveringError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -352,18 +352,18 @@ public:
         uint64_t amount;
         string amountStdString = [amount_str UTF8String];
         cryptonote::parse_amount(amount, amountStdString);
-        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, amount, 0, priority);
+        tx = member->wallet->createTransaction(addressStdString, amount, priority);
     } else {
-        tx = member-> wallet->createTransaction(addressStdString, paymentIdStdString, Monero::optional<uint64_t>(), 0, priority);
+        tx = member->wallet->createTransaction(addressStdString, std::nullopt, priority);
     }
-    
-    int status = tx->status();
+
+    auto [status, errStr] = tx->status();
     
     if (status == Monero::PendingTransaction::Status::Status_Error
         || status == Monero::PendingTransaction::Status::Status_Critical) {
         
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: tx->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: errStr.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletTransactionCreatingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -386,7 +386,7 @@ public:
     
     if (!isSaved) {
         if (error != NULL && member->wallet != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletSavingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -404,7 +404,7 @@ public:
     
     if (!isConnected) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletConnectingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];
@@ -482,7 +482,7 @@ public:
 
 - (NSString *)errorString
 {
-    return [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+    return [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
 }
 
 - (NSString *)name
@@ -522,7 +522,7 @@ public:
     
     if (!changed) {
         if (error != NULL) {
-            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->errorString().c_str()];
+            NSString* errorDescription = [NSString stringWithUTF8String: member->wallet->status().second.c_str()];
             *error = [NSError errorWithDomain: MoneroWalletErrorDomain
                                          code: MoneroWalletPasswordChangingError
                                      userInfo: @{ NSLocalizedDescriptionKey: errorDescription }];

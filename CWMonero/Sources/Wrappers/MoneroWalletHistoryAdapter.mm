@@ -7,6 +7,8 @@
 #import "MoneroWalletAdapter.mm"
 #import "Subaddresses.mm"
 
+namespace Monero = Wallet;
+
 @implementation MoneroWalletHistoryAdapter: NSObject
 Monero::TransactionHistory *transactionHistory;
 
